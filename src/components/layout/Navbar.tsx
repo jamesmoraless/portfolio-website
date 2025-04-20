@@ -15,11 +15,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-sm z-50 shadow-sm">
+    <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold text-gray-800">
+            <Link href="/" className="text-2xl font-bold text-gray-900">
               James Morales
             </Link>
           </div>
@@ -31,7 +31,7 @@ const Navbar = () => {
                 <Link
                   key={item.path}
                   href={item.path}
-                  className="text-gray-600 hover:text-gray-900 transition-colors"
+                  className="text-gray-900 hover:text-blue-600 transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -43,7 +43,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:text-blue-600 hover:bg-emerald-50 focus:outline-none"
             >
               <span className="sr-only">Open main menu</span>
               {!isMenuOpen ? (
@@ -68,7 +68,7 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 href={item.path}
-                className="block px-3 py-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                className="block px-3 py-2 rounded-md text-gray-900 hover:text-blue-600 hover:bg-emerald-50"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

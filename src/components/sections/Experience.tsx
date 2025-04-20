@@ -71,12 +71,12 @@ const Experience = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Work Experience</h2>
-          <p className="text-lg text-gray-600">My professional journey and contributions</p>
+          <p className="text-lg text-gray-700">My professional journey and contributions</p>
         </motion.div>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gray-200" />
+          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-emerald-200" />
 
           {/* Experience items */}
           {experiences.map((experience, index) => (
@@ -91,18 +91,18 @@ const Experience = () => {
               }`}
             >
               {/* Timeline dot */}
-              <div className="absolute left-4 md:left-1/2 transform -translate-y-1/2 md:-translate-x-1/2 w-4 h-4 bg-gray-900 rounded-full mt-6" />
+              <div className="absolute left-4 md:left-1/2 transform -translate-y-1/2 md:-translate-x-1/2 w-4 h-4 bg-emerald-800 rounded-full mt-6" />
 
               {/* Content */}
-              <div className="ml-12 md:ml-0 md:w-1/2 p-6 bg-gray-50 rounded-lg shadow-sm">
+              <div className="ml-12 md:ml-0 md:w-1/2 p-6 bg-emerald-50 rounded-lg shadow-sm">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">{experience.title}</h3>
                 <div className="flex items-center gap-2 mb-2">
-                  <p className="text-gray-600">{experience.company}</p>
-                  <span className="text-gray-400">•</span>
-                  <p className="text-gray-600">{experience.location}</p>
+                  <p className="text-gray-700">{experience.company}</p>
+                  <span className="text-emerald-400">•</span>
+                  <p className="text-gray-700">{experience.location}</p>
                 </div>
-                <p className="text-sm text-gray-500 mb-4">{experience.period}</p>
-                <ul className="list-disc list-inside space-y-2 mb-4 text-gray-600">
+                <p className="text-sm text-gray-600 mb-4">{experience.period}</p>
+                <ul className="list-disc list-inside space-y-2 mb-4 text-gray-700">
                   {experience.description.map((item, i) => (
                     <li key={i} className="text-sm">{item}</li>
                   ))}
@@ -111,7 +111,7 @@ const Experience = () => {
                   {experience.technologies.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded-full"
+                      className="px-3 py-1 bg-white text-gray-700 text-sm rounded-full border border-emerald-100"
                     >
                       {tech}
                     </span>

@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 
 interface ProjectItem {
   title: string;
@@ -68,7 +67,7 @@ const projects: ProjectItem[] = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-gray-50">
+    <section id="projects" className="py-20 bg-emerald-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -78,7 +77,7 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Projects</h2>
-          <p className="text-lg text-gray-600">Featured work and personal projects</p>
+          <p className="text-lg text-gray-700">Featured work and personal projects</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -93,10 +92,10 @@ const Projects = () => {
             >
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
-                <p className="text-sm text-gray-500">{project.period}</p>
+                <p className="text-sm text-gray-600">{project.period}</p>
               </div>
 
-              <ul className="list-disc list-inside space-y-2 mb-4 text-gray-600">
+              <ul className="list-disc list-inside space-y-2 mb-4 text-gray-700">
                 {project.description.map((item, i) => (
                   <li key={i} className="text-sm">{item}</li>
                 ))}
@@ -106,7 +105,7 @@ const Projects = () => {
                 {project.technologies.map((tech, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                    className="px-3 py-1 bg-emerald-50 text-gray-700 text-sm rounded-full"
                   >
                     {tech}
                   </span>
@@ -116,28 +115,34 @@ const Projects = () => {
               {project.links && (
                 <div className="flex gap-4">
                   {project.links.demo && (
-                    <Link 
+                    <a 
                       href={project.links.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-blue-600 hover:text-blue-800 text-sm font-medium"
                     >
                       Demo →
-                    </Link>
+                    </a>
                   )}
                   {project.links.github && (
-                    <Link 
+                    <a 
                       href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-blue-600 hover:text-blue-800 text-sm font-medium"
                     >
                       GitHub →
-                    </Link>
+                    </a>
                   )}
                   {project.links.info && (
-                    <Link 
+                    <a 
                       href={project.links.info}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-blue-600 hover:text-blue-800 text-sm font-medium"
                     >
                       Learn More →
-                    </Link>
+                    </a>
                   )}
                 </div>
               )}
