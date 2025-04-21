@@ -97,10 +97,10 @@ const About = () => {
                 What drives me is the satisfaction of seeing a project through from concept to completion. This passion 
                 was instilled early on, working alongside my father in concrete construction. Those experiences taught 
                 me the value of craftsmanship and the joy of delivering solutions that make a real difference in 
-                people's lives.
+                people&apos;s lives.
               </p>
               <p>
-                Today, I apply this same philosophy to software development. Whether it's building data pipelines at 
+                Today, I apply this same philosophy to software development. Whether it&apos;s building data pipelines at 
                 Flowmatic, developing analytics tools at Zynga, or creating sales software at Repwave, I approach each 
                 project as an opportunity to blend technical excellence with practical business value.
               </p>
