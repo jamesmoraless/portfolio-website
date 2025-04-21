@@ -107,11 +107,8 @@ const About = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">About Me</h2>
             </div>
             <div className="space-y-4 text-gray-600">
-              <p>
-                I'm a software engineer and business professional who recently graduated from Western University's 
-                dual degree program, combining Software Engineering with Business Administration at Ivey Business School. 
-                This unique intersection of technical expertise and business acumen reflects my holistic approach to 
-                problem-solving and development.
+              <p className="text-gray-600 mb-6">
+                I&apos;m a software engineer and business professional who recently graduated from Western University with a dual degree in Software Engineering and Business Administration (HBA). I&apos;m passionate about building innovative solutions and creating impactful user experiences.
               </p>
               <p>
                 Throughout my academic journey, I built a strong foundation in software engineering, developing expertise 
