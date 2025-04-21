@@ -10,10 +10,28 @@ const Contact = () => {
     message: '',
   });
 
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement form submission logic
-    console.log('Form submitted:', formData);
+    setStatus('sending');
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      if (response.ok && data.success) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setStatus('error');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -108,6 +126,12 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
+              {status === 'success' && (
+                <p className="text-green-600 mb-4">Thank you! Your message has been sent.</p>
+              )}
+              {status === 'error' && (
+                <p className="text-red-600 mb-4">Sorry, something went wrong. Please try again later.</p>
+              )}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                   Name
@@ -152,9 +176,10 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-indigo-800 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
+                disabled={status === 'sending'}
+                className="w-full bg-indigo-800 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors disabled:opacity-50"
               >
-                Send Message
+                {status === 'sending' ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </motion.div>
