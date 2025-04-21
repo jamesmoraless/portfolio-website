@@ -1,8 +1,81 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const About = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const galleryImages = [
+    {
+      src: '/images/ringed.jpg',
+      alt: 'Iron Ring Ceremony with fellow engineers',
+      caption: 'Iron rings secured 💍'
+    },
+    {
+      src: '/images/coding.jpg',
+      alt: 'Coding session',
+      caption: 'Making shareholders happy 💻'
+    },
+    {
+      src: '/images/surfing.jpg',
+      alt: 'Surfing in El Salvador with brother',
+      caption: 'Surfing with my little bro in El Salvador 🏄‍♂️'
+    },
+    {
+      src: '/images/golf.PNG',
+      alt: 'Golfing at the local course',
+      caption: 'Working on fixing the swing ⛳'
+    },
+    {
+      src: '/images/running.jpg',
+      alt: 'Training for half marathon',
+      caption: 'Marathon training in progress 🏃‍♂️'
+    },
+    {
+      src: '/images/footy.JPG',
+      alt: 'Intramural soccer team',
+      caption: 'Elite group of soccer players ⚽'
+    },
+    {
+      src: '/images/construction.jpg',
+      alt: 'Construction with friends',
+      caption: 'Getting help from my now roommates back in high school 🏗️'
+    }
+  ];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+  };
+
+  const previousImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
+
+  const funFacts = [
+    {
+      emoji: "⛳",
+      title: "Aspiring Golfer",
+      description: "Currently on a mission to break 100 on the golf course. My best score so far? Let's just say I'm improving!"
+    },
+    {
+      emoji: "🏃‍♂️",
+      title: "Runner in Training",
+      description: "Training for my first half marathon. Because apparently debugging code wasn't challenging enough!"
+    },
+    {
+      emoji: "📚",
+      title: "Book Enthusiast",
+      description: "When I'm not coding, you'll find me diving into books about business, technology, and personal growth."
+    },
+    {
+      emoji: "🏗️",
+      title: "Builder at Heart",
+      description: "From concrete construction with my dad to building software - I've always loved creating things from scratch."
+    }
+  ];
+
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,77 +84,170 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12"
         >
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About Me</h2>
+          <div className="space-y-6">
+            <div className="flex items-center space-x-6 mb-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="relative w-32 h-32 rounded-full overflow-hidden ring-4 ring-emerald-100"
+              >
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Profile picture"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority
+                />
+              </motion.div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">About Me</h2>
+            </div>
             <div className="space-y-4 text-gray-600">
               <p>
-                I'm a software engineer and business professional in my final year of a unique dual degree program at Western University, 
-                combining Software Engineering with Business Administration at Ivey Business School. This intersection of technical expertise 
-                and business acumen reflects my holistic approach to problem-solving and development.
+                I'm a software engineer and business professional who recently graduated from Western University's 
+                dual degree program, combining Software Engineering with Business Administration at Ivey Business School. 
+                This unique intersection of technical expertise and business acumen reflects my holistic approach to 
+                problem-solving and development.
               </p>
               <p>
-                My journey began with a foundation in software engineering, where I developed strong technical skills in full-stack development, 
-                data engineering, and cloud technologies. This technical foundation was complemented by my business education at Ivey, where I 
-                honed my leadership, communication, and strategic thinking skills while maintaining a 3.9 GPA.
+                Throughout my academic journey, I built a strong foundation in software engineering, developing expertise 
+                in full-stack development, data engineering, and cloud technologies. This technical foundation was 
+                complemented by my business education at Ivey, where I honed my leadership, communication, and strategic 
+                thinking skills while maintaining a 3.9 GPA.
               </p>
               <p>
-                What drives me is the satisfaction of seeing a project through from concept to completion. This passion was instilled early on, 
-                working alongside my father in concrete construction. Those experiences taught me the value of craftsmanship and the joy of 
-                delivering solutions that make a real difference in people's lives.
+                What drives me is the satisfaction of seeing a project through from concept to completion. This passion 
+                was instilled early on, working alongside my father in concrete construction. Those experiences taught 
+                me the value of craftsmanship and the joy of delivering solutions that make a real difference in 
+                people's lives.
               </p>
               <p>
-                Today, I apply this same philosophy to software development. Whether it's building data pipelines at Flowmatic, developing 
-                analytics tools at Zynga, or creating sales software at Repwave, I approach each project as an opportunity to blend technical 
-                excellence with practical business value.
+                Today, I apply this same philosophy to software development. Whether it's building data pipelines at 
+                Flowmatic, developing analytics tools at Zynga, or creating sales software at Repwave, I approach each 
+                project as an opportunity to blend technical excellence with practical business value.
               </p>
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-gray-50 p-8 rounded-xl shadow-sm"
-          >
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Key Highlights</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <span className="flex-shrink-0 p-1 bg-gray-900 rounded-full mr-3 mt-1.5">
-                  <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+          <div className="space-y-8">
+            {/* Life in Action Section - Now First */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-emerald-50 p-8 rounded-xl shadow-sm"
+            >
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Life in Action</h3>
+              <div className="relative">
+                <div className="relative w-full h-[320px] rounded-lg overflow-hidden bg-emerald-100">
+                  <motion.div
+                    key={currentImageIndex}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="relative w-full h-full"
+                  >
+                    <Image
+                      src={galleryImages[currentImageIndex].src}
+                      alt={galleryImages[currentImageIndex].alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority={currentImageIndex === 0}
+                      quality={85}
+                      style={{
+                        objectPosition: galleryImages[currentImageIndex].src.includes('construction.jpg') ? 'center top' : 'center center'
+                      }}
+                    />
+                  </motion.div>
+                </div>
+                
+                <button
+                  onClick={previousImage}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-200"
+                >
+                  <svg className="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
                   </svg>
-                </span>
-                <span className="text-gray-600">Dual degree in Software Engineering and Business Administration (HBA)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="flex-shrink-0 p-1 bg-gray-900 rounded-full mr-3 mt-1.5">
-                  <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </button>
+                
+                <button
+                  onClick={nextImage}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-200"
+                >
+                  <svg className="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                   </svg>
-                </span>
-                <span className="text-gray-600">Experience in data engineering, full-stack development, and analytics</span>
-              </li>
-              <li className="flex items-start">
-                <span className="flex-shrink-0 p-1 bg-gray-900 rounded-full mr-3 mt-1.5">
-                  <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                <span className="text-gray-600">Strong foundation in both technical development and business strategy</span>
-              </li>
-              <li className="flex items-start">
-                <span className="flex-shrink-0 p-1 bg-gray-900 rounded-full mr-3 mt-1.5">
-                  <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                <span className="text-gray-600">Proven track record in startups and game development companies</span>
-              </li>
-            </ul>
-          </motion.div>
+                </button>
+
+                <div className="mt-3 text-center">
+                  <p className="text-gray-900 font-medium text-sm">{galleryImages[currentImageIndex].caption}</p>
+                  <div className="flex justify-center space-x-2 mt-2">
+                    {galleryImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
+                          index === currentImageIndex ? 'bg-gray-900 w-3' : 'bg-gray-400'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Key Highlights Section - Now Second */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-emerald-50 p-6 rounded-xl shadow-sm"
+            >
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Key Highlights</h3>
+              <ul className="space-y-2.5">
+                <li className="flex items-start">
+                  <span className="flex-shrink-0 p-0.5 bg-gray-900 rounded-full mr-2 mt-1.5">
+                    <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span className="text-gray-900 text-sm">Graduated with dual degree in Software Engineering and Business Administration (HBA)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="flex-shrink-0 p-0.5 bg-gray-900 rounded-full mr-2 mt-1.5">
+                    <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span className="text-gray-900 text-sm">Experience in data engineering, full-stack development, and analytics</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="flex-shrink-0 p-0.5 bg-gray-900 rounded-full mr-2 mt-1.5">
+                    <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span className="text-gray-900 text-sm">Strong foundation in both technical development and business strategy</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="flex-shrink-0 p-0.5 bg-gray-900 rounded-full mr-2 mt-1.5">
+                    <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span className="text-gray-900 text-sm">Proven track record in startups and analytics teams</span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

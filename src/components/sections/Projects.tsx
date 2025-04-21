@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface ProjectItem {
   title: string;
@@ -149,6 +150,30 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* View Full Project Archive Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mt-16"
+        >
+          <Link
+            href="/archive"
+            className="inline-flex items-center px-6 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors duration-200 group"
+          >
+            <span className="text-base font-medium">View Full Project Archive</span>
+            <svg
+              className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

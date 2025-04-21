@@ -121,6 +121,32 @@ const Experience = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* View Full Resume Link */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mt-12"
+        >
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-gray-900 hover:text-emerald-700 transition-colors duration-200 group"
+          >
+            <span className="text-lg font-medium">View Full Résumé</span>
+            <svg
+              className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </motion.div>
       </div>
     </section>
   );
