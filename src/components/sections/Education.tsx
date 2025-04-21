@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface EducationItem {
   school: string;
@@ -9,8 +10,8 @@ interface EducationItem {
   location: string;
   gpa?: string;
   courses: string[];
-  scholarships: string[];
   extracurricular: string[];
+  image: string;
 }
 
 const educationData: EducationItem[] = [
@@ -28,14 +29,12 @@ const educationData: EducationItem[] = [
       "Leadership",
       "Communications"
     ],
-    scholarships: [
-      "Edward Sullivan Award in Business $4,000"
-    ],
     extracurricular: [
       "Junior VP of Ivey Analytics Club",
       "Ivey Consulting Club",
       "Ivey Tech Club"
-    ]
+    ],
+    image: "/images/ivey-building.jpg"
   },
   {
     school: "Western University",
@@ -50,16 +49,13 @@ const educationData: EducationItem[] = [
       "Project Management",
       "Scripting Languages"
     ],
-    scholarships: [
-      "Heaslip $15,000",
-      "Western Distinction $2,500"
-    ],
     extracurricular: [
       "Western Engineering Competition Director",
       "Western AI Programmer",
       "Intramural Soccer",
       "Intramural Flag Football"
-    ]
+    ],
+    image: "/images/engineering-building.jpg"
   }
 ];
 
@@ -86,53 +82,57 @@ const Education = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-white rounded-xl shadow-sm p-8"
+              className="bg-white rounded-xl shadow-sm overflow-hidden"
             >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">{education.school}</h3>
-                  <p className="text-lg text-gray-700 mt-1">{education.degree}</p>
-                  {education.gpa && (
-                    <p className="text-sm text-emerald-600 font-medium mt-1">{education.gpa}</p>
-                  )}
-                </div>
-                <div className="mt-2 md:mt-0 text-right">
-                  <p className="text-gray-600">{education.period}</p>
-                  <p className="text-gray-600">{education.location}</p>
-                </div>
-              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="p-6 md:p-8 lg:p-10">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
+                    <div>
+                      <h3 className="text-lg md:text-xl font-bold text-gray-900">{education.school}</h3>
+                      <p className="text-base text-gray-700 mt-1">{education.degree}</p>
+                      {education.gpa && (
+                        <p className="text-xs text-emerald-600 font-medium mt-1">{education.gpa}</p>
+                      )}
+                    </div>
+                    <div className="mt-2 md:mt-0 text-right">
+                      <p className="text-sm text-gray-600">{education.period}</p>
+                      <p className="text-sm text-gray-600">{education.location}</p>
+                    </div>
+                  </div>
 
-              <div className="mt-4 space-y-4">
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-900 mb-2">Relevant Courses</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {education.courses.map((course, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-emerald-50 text-gray-700 text-sm rounded-full border border-emerald-100"
-                      >
-                        {course}
-                      </span>
-                    ))}
+                  <div className="space-y-8">
+                    <div>
+                      <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-3">Relevant Courses</h4>
+                      <div className="flex flex-wrap gap-1.5">
+                        {education.courses.map((course, i) => (
+                          <span
+                            key={i}
+                            className="px-2.5 py-0.5 bg-emerald-50 text-gray-700 text-xs rounded-full border border-emerald-100"
+                          >
+                            {course}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-3">Extracurricular</h4>
+                      <ul className="list-disc list-inside space-y-0.5">
+                        {education.extracurricular.map((activity, i) => (
+                          <li key={i} className="text-xs text-gray-700">{activity}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-900 mb-2">Scholarships</h4>
-                  <ul className="list-disc list-inside space-y-1">
-                    {education.scholarships.map((scholarship, i) => (
-                      <li key={i} className="text-sm text-gray-700">{scholarship}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-900 mb-2">Extracurricular</h4>
-                  <ul className="list-disc list-inside space-y-1">
-                    {education.extracurricular.map((activity, i) => (
-                      <li key={i} className="text-sm text-gray-700">{activity}</li>
-                    ))}
-                  </ul>
+                <div className="relative h-72 md:h-full">
+                  <Image
+                    src={education.image}
+                    alt={`${education.school} building`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
               </div>
             </motion.div>
