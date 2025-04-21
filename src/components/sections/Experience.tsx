@@ -12,6 +12,7 @@ interface ExperienceItem {
   technologies: string[];
   companyLogo: string;
   companyUrl: string;
+  screenshot: string;
 }
 
 const experiences: ExperienceItem[] = [
@@ -26,7 +27,8 @@ const experiences: ExperienceItem[] = [
     ],
     technologies: ["Airflow", "PostgreSQL", "AWS EC2", "FastAPI", "TypeScript"],
     companyLogo: "/images/flowmatic-logo.png",
-    companyUrl: "https://www.withflowmatic.com/"
+    companyUrl: "https://www.withflowmatic.com/",
+    screenshot: "/images/flowmatic-site.png"
   },
   {
     title: "Software Engineering Intern - Analytics",
@@ -40,7 +42,8 @@ const experiences: ExperienceItem[] = [
     ],
     technologies: ["React", "Python", "Airflow", "Redshift", "Jenkins", "Kubernetes", "Terraform"],
     companyLogo: "/images/zynga-icon.png",
-    companyUrl: "https://www.zynga.com/"
+    companyUrl: "https://www.zynga.com/",
+    screenshot: "/images/zynga-site.png"
   },
   {
     title: "Software Developer",
@@ -53,7 +56,8 @@ const experiences: ExperienceItem[] = [
     ],
     technologies: ["React", "Flask", "Python", "Salesforce", "Figma"],
     companyLogo: "",
-    companyUrl: "https://www.repwave.co/"
+    companyUrl: "https://www.repwave.co/",
+    screenshot: ""
   },
   {
     title: "Business Systems Analyst Intern",
@@ -66,7 +70,8 @@ const experiences: ExperienceItem[] = [
     ],
     technologies: ["Azure DevOps", "Scrum", "Agile"],
     companyLogo: "/images/ontario-health-logo.png",
-    companyUrl: "https://www.ontariohealth.ca/"
+    companyUrl: "https://www.ontariohealth.ca/",
+    screenshot: "/images/ontario-health-site.png"
   }
 ];
 
@@ -87,7 +92,7 @@ const Experience = () => {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-emerald-200" />
+          <div className="absolute left-4 top-0 h-full w-0.5 bg-indigo-200" />
 
           {/* Experience items */}
           {experiences.map((experience, index) => (
@@ -97,61 +102,77 @@ const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className={`relative flex flex-col md:flex-row gap-8 mb-12 ${
-                index % 2 === 0 ? 'md:flex-row-reverse' : ''
-              }`}
+              className="relative mb-12"
             >
               {/* Timeline dot */}
-              <div className="absolute left-4 md:left-1/2 transform -translate-y-1/2 md:-translate-x-1/2 w-4 h-4 bg-indigo-800 rounded-full mt-6" />
+              <div className="absolute left-2 w-4 h-4 bg-indigo-800 rounded-full top-8" />
 
               {/* Content */}
-              <div className="ml-12 md:ml-0 md:w-1/2 p-6 bg-indigo-50 rounded-lg shadow-sm">
-                <div className="flex items-center gap-4 mb-4">
+              <div className="ml-12 md:ml-20 p-6 bg-indigo-50 rounded-lg shadow-sm flex flex-col md:flex-row gap-6">
+                <div className="md:w-2/3">
+                  <div className="flex items-center gap-4 mb-4">
+                    <a
+                      href={experience.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-12 h-12 relative rounded-lg overflow-hidden hover:opacity-80 transition-opacity"
+                    >
+                      {experience.companyLogo ? (
+                        <Image
+                          src={experience.companyLogo}
+                          alt={`${experience.company} logo`}
+                          fill
+                          className="object-contain"
+                          sizes="48px"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-indigo-100 flex items-center justify-center text-indigo-800 font-bold text-lg">
+                          {experience.company.charAt(0)}
+                        </div>
+                      )}
+                    </a>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900">{experience.title}</h3>
+                      <div className="flex items-center gap-2">
+                        <p className="text-gray-700">{experience.company}</p>
+                        <span className="text-indigo-400">•</span>
+                        <p className="text-gray-700">{experience.location}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4">{experience.period}</p>
+                  <ul className="list-disc list-inside space-y-2 mb-4 text-gray-700">
+                    {experience.description.map((item, i) => (
+                      <li key={i} className="text-sm">{item}</li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-2">
+                    {experience.technologies.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 bg-white text-gray-700 text-sm rounded-full border border-indigo-100"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                {experience.screenshot && (
                   <a
                     href={experience.companyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-12 h-12 relative rounded-lg overflow-hidden hover:opacity-80 transition-opacity"
+                    className="md:w-1/3 block relative h-48 rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-200"
                   >
-                    {experience.companyLogo ? (
-                      <Image
-                        src={experience.companyLogo}
-                        alt={`${experience.company} logo`}
-                        fill
-                        className="object-contain"
-                        sizes="48px"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-indigo-100 flex items-center justify-center text-indigo-800 font-bold text-lg">
-                        {experience.company.charAt(0)}
-                      </div>
-                    )}
+                    <Image
+                      src={experience.screenshot}
+                      alt={`${experience.company} website screenshot`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
                   </a>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900">{experience.title}</h3>
-                    <div className="flex items-center gap-2">
-                      <p className="text-gray-700">{experience.company}</p>
-                      <span className="text-indigo-400">•</span>
-                      <p className="text-gray-700">{experience.location}</p>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-600 mb-4">{experience.period}</p>
-                <ul className="list-disc list-inside space-y-2 mb-4 text-gray-700">
-                  {experience.description.map((item, i) => (
-                    <li key={i} className="text-sm">{item}</li>
-                  ))}
-                </ul>
-                <div className="flex flex-wrap gap-2">
-                  {experience.technologies.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-white text-gray-700 text-sm rounded-full border border-indigo-100 hover:bg-indigo-100 hover:border-indigo-200 hover:text-indigo-700 transition-all duration-200 cursor-pointer"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                )}
               </div>
             </motion.div>
           ))}

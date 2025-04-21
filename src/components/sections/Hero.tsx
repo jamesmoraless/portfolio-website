@@ -25,7 +25,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-base md:text-lg text-gray-700 max-w-xl mb-6 leading-relaxed"
           >
-            I build concrete solutions to complex problems, bringing ideas to life through clean code and intuitive design.
+            I craft elegant solutions to complex problems, bringing ideas to life through clean code and intuitive design.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -55,9 +55,9 @@ const Hero = () => {
           className="mt-8 md:mt-0 md:w-1/2 flex justify-center"
         >
           <img
-            src="/images/profile.jpg"
-            alt="James Morales"
-            className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-lg"
+            src="/images/ghibli-made.png"
+            alt="James Morales Studio Ghibli Form"
+            className="w-72 h-92 md:w-106 md:h-136 object-cover object-center rounded-xl shadow-lg"
           />
         </motion.div>
       </div>
