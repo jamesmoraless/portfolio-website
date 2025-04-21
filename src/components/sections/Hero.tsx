@@ -25,7 +25,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-base md:text-lg text-gray-700 max-w-xl mb-6 leading-relaxed"
           >
-            I craft elegant solutions to complex problems, bringing ideas to life through clean code and intuitive design.
+            I build concrete solutions to complex problems, bringing ideas to life through clean code and intuitive design.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
