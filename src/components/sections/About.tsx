@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { CheckCircleIcon, CheckIcon } from '@heroicons/react/24/outline';
 
 const About = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
