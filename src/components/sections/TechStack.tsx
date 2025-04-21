@@ -124,7 +124,7 @@ const TechStack = () => {
   const handleWheel = (e: React.WheelEvent) => {
     e.preventDefault();
     if (containerRef.current) {
-      containerRef.current.scrollLeft += e.deltaY;
+      containerRef.current.scrollLeft += e.deltaY * 0.3;
     }
   };
 
@@ -146,53 +146,59 @@ const TechStack = () => {
   const tripleStack = [...techStack, ...techStack, ...techStack];
 
   return (
-    <section className="py-16 bg-emerald-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-emerald-800 text-center mb-8">
-          Tech Stack
-        </h2>
-        <div 
-          ref={containerRef}
-          className="relative w-full overflow-x-hidden cursor-grab active:cursor-grabbing"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => {
-            setIsHovered(false);
-            setIsDragging(false);
-          }}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          onWheel={handleWheel}
-        >
-          <motion.div
-            ref={scrollRef}
-            className="flex gap-12 items-center px-6"
-            animate={controls}
-            style={{ width: "fit-content" }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.1}
+    <>
+      <section id="tech-stack" className="py-16 bg-indigo-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
+            Tech Stack
+          </h2>
+          <div 
+            ref={containerRef}
+            className="relative w-full overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing no-scrollbar"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => {
+              setIsHovered(false);
+              setIsDragging(false);
+            }}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            onWheel={handleWheel}
           >
-            {tripleStack.map((tech, index) => (
-              <div
-                key={`${tech.name}-${index}`}
-                className="flex flex-col items-center gap-2 min-w-[100px]"
-              >
-                <div 
-                  className="w-12 h-12 relative flex items-center justify-center"
-                  style={{ color: `#${tech.icon.hex}` }}
+            <motion.div
+              ref={scrollRef}
+              className="flex gap-12 items-center px-6"
+              animate={controls}
+              style={{ width: "fit-content" }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.1}
+            >
+              {tripleStack.map((tech, index) => (
+                <div
+                  key={`${tech.name}-${index}`}
+                  className="flex flex-col items-center gap-2 min-w-[100px]"
                 >
-                  {renderIcon(tech.icon)}
+                  <div 
+                    className="w-12 h-12 relative flex items-center justify-center"
+                    style={{ color: `#${tech.icon.hex}` }}
+                  >
+                    {renderIcon(tech.icon)}
+                  </div>
+                  <span className="text-sm text-gray-800 text-center whitespace-nowrap">
+                    {tech.name}
+                  </span>
                 </div>
-                <span className="text-sm text-emerald-800 text-center whitespace-nowrap">
-                  {tech.name}
-                </span>
-              </div>
-            ))}
-          </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <style jsx global>{`  
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
+    </>
   );
 };
 

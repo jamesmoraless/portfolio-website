@@ -61,7 +61,7 @@ const educationData: EducationItem[] = [
 
 const Education = () => {
   return (
-    <section id="education" className="py-20 bg-emerald-50">
+    <section id="education" className="py-20 bg-indigo-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -91,7 +91,7 @@ const Education = () => {
                       <h3 className="text-lg md:text-xl font-bold text-gray-900">{education.school}</h3>
                       <p className="text-base text-gray-700 mt-1">{education.degree}</p>
                       {education.gpa && (
-                        <p className="text-xs text-emerald-600 font-medium mt-1">{education.gpa}</p>
+                        <p className="text-xs text-indigo-600 font-medium mt-1">{education.gpa}</p>
                       )}
                     </div>
                     <div className="mt-2 md:mt-0 text-right">
@@ -107,7 +107,7 @@ const Education = () => {
                         {education.courses.map((course, i) => (
                           <span
                             key={i}
-                            className="px-2.5 py-0.5 bg-emerald-50 text-gray-700 text-xs rounded-full border border-emerald-100"
+                            className="px-2.5 py-0.5 bg-indigo-50 text-gray-700 text-xs rounded-full border border-indigo-100"
                           >
                             {course}
                           </span>

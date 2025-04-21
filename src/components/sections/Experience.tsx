@@ -102,10 +102,10 @@ const Experience = () => {
               }`}
             >
               {/* Timeline dot */}
-              <div className="absolute left-4 md:left-1/2 transform -translate-y-1/2 md:-translate-x-1/2 w-4 h-4 bg-emerald-800 rounded-full mt-6" />
+              <div className="absolute left-4 md:left-1/2 transform -translate-y-1/2 md:-translate-x-1/2 w-4 h-4 bg-indigo-800 rounded-full mt-6" />
 
               {/* Content */}
-              <div className="ml-12 md:ml-0 md:w-1/2 p-6 bg-emerald-50 rounded-lg shadow-sm">
+              <div className="ml-12 md:ml-0 md:w-1/2 p-6 bg-indigo-50 rounded-lg shadow-sm">
                 <div className="flex items-center gap-4 mb-4">
                   <a
                     href={experience.companyUrl}
@@ -122,7 +122,7 @@ const Experience = () => {
                         sizes="48px"
                       />
                     ) : (
-                      <div className="w-full h-full bg-emerald-100 flex items-center justify-center text-emerald-800 font-bold text-lg">
+                      <div className="w-full h-full bg-indigo-100 flex items-center justify-center text-indigo-800 font-bold text-lg">
                         {experience.company.charAt(0)}
                       </div>
                     )}
@@ -131,7 +131,7 @@ const Experience = () => {
                     <h3 className="text-xl font-bold text-gray-900">{experience.title}</h3>
                     <div className="flex items-center gap-2">
                       <p className="text-gray-700">{experience.company}</p>
-                      <span className="text-emerald-400">•</span>
+                      <span className="text-indigo-400">•</span>
                       <p className="text-gray-700">{experience.location}</p>
                     </div>
                   </div>
@@ -146,7 +146,7 @@ const Experience = () => {
                   {experience.technologies.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 bg-white text-gray-700 text-sm rounded-full border border-emerald-100"
+                      className="px-3 py-1 bg-white text-gray-700 text-sm rounded-full border border-indigo-100 hover:bg-indigo-100 hover:border-indigo-200 hover:text-indigo-700 transition-all duration-200 cursor-pointer"
                     >
                       {tech}
                     </span>
@@ -169,7 +169,7 @@ const Experience = () => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-gray-900 hover:text-emerald-700 transition-colors duration-200 group"
+            className="inline-flex items-center text-gray-900 hover:text-indigo-700 transition-colors duration-200 group"
           >
             <span className="text-lg font-medium">View Full Résumé</span>
             <svg

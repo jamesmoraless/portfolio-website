@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { CheckCircleIcon, CheckIcon } from '@heroicons/react/24/outline';
 
 const About = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -54,7 +55,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-indigo-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,7 +71,7 @@ const About = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="relative w-32 h-32 rounded-full overflow-hidden ring-4 ring-emerald-100"
+                className="relative w-32 h-32 rounded-full overflow-hidden ring-4 ring-indigo-200"
               >
                 <Image
                   src="/images/profile.jpg"
@@ -114,11 +115,11 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-emerald-50 p-8 rounded-xl shadow-sm"
+              className="bg-indigo-200 p-8 rounded-xl shadow-sm"
             >
               <h3 className="text-lg font-bold text-gray-900 mb-3">Life in Action</h3>
               <div className="relative">
-                <div className="relative w-full h-[320px] rounded-lg overflow-hidden bg-emerald-100">
+                <div className="relative w-full h-[320px] rounded-lg overflow-hidden bg-indigo-100">
                   <motion.div
                     key={currentImageIndex}
                     initial={{ opacity: 0 }}
@@ -183,7 +184,7 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-emerald-50 p-6 rounded-xl shadow-sm"
+              className="bg-indigo-200 p-6 rounded-xl shadow-sm"
             >
               <h3 className="text-lg font-bold text-gray-900 mb-3">Key Highlights</h3>
               <ul className="space-y-2.5">
