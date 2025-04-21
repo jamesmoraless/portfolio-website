@@ -53,29 +53,6 @@ const About = () => {
     setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
   };
 
-  const funFacts = [
-    {
-      emoji: "⛳",
-      title: "Aspiring Golfer",
-      description: "Currently on a mission to break 100 on the golf course. My best score so far? Let's just say I'm improving!"
-    },
-    {
-      emoji: "🏃‍♂️",
-      title: "Runner in Training",
-      description: "Training for my first half marathon. Because apparently debugging code wasn't challenging enough!"
-    },
-    {
-      emoji: "📚",
-      title: "Book Enthusiast",
-      description: "When I'm not coding, you'll find me diving into books about business, technology, and personal growth."
-    },
-    {
-      emoji: "🏗️",
-      title: "Builder at Heart",
-      description: "From concrete construction with my dad to building software - I've always loved creating things from scratch."
-    }
-  ];
-
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
