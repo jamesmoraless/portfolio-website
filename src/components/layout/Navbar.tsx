@@ -20,7 +20,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold text-gray-900">
+            <Link href="/" className="flex items-center text-2xl font-bold text-gray-900">
+              <img src="/favicon.ico" alt="Logo" className="w-6 h-6 mr-2 inline-block" />
               James Morales
             </Link>
           </div>
@@ -32,7 +33,7 @@ const Navbar = () => {
                 <Link
                   key={item.path}
                   href={item.path}
-                  className="text-gray-900 hover:text-blue-600 transition-colors"
+                  className="text-gray-900 hover:text-indigo-600 transition-colors"
                 >
                   {item.label}
                 </Link>
