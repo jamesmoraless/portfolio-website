@@ -18,13 +18,14 @@ interface ProjectItem {
 
 const projects: ProjectItem[] = [
   {
-    title: "London Transit Delays",
-    period: "Fall 2024 - Present",
+    title: "Capstone: London Transit Delays - 1st Place Winner",
+    period: "Fall 2024 - Spring 2025",
     description: [
       "Implemented a real-time data pipeline using Node.js, Express, and MongoDB, processing weather and traffic data dynamically",
+      "Configured a Grafana dashboard to visualize the data, and a cron job to run the pipeline as a scheduled task",
       "Utilized Python, Pandas, Scikit-learn, and TensorFlow to build a predictive analytics pipeline, leveraging historical and real-time datasets for model training"
     ],
-    technologies: ["Node.js", "Express", "MongoDB", "Python", "Pandas", "Scikit-learn", "TensorFlow"],
+    technologies: ["Node.js", "Express", "MongoDB", "Python", "Grafana ", "Docker", "Cron", "GCP", "Open Source APIs"],
     links: {
       demo: "https://www.youtube.com/watch?app=desktop&v=faBJWkhCoZU"
     },
@@ -37,7 +38,7 @@ const projects: ProjectItem[] = [
       "Engineered an AI agent using the OpenAI API that analyzes personal portfolios and delivers personalized financial advice, leveraging insights from corporate financial reporting, finance and accounting coursework",
       "Developed a real-time finance dashboard integrating market data, portfolio tracking, and interactive visualizations utilizing open source libraries such as Chart.js and APIs such as Alpha Vantage, IEX Cloud, Yahoo Finance, and OpenAI"
     ],
-    technologies: ["OpenAI API", "Chart.js", "Alpha Vantage API", "IEX Cloud", "Yahoo Finance API"],
+    technologies: ["OpenAI API", "Docker","Chart.js", "Alpha Vantage API", "IEX Cloud", "Yahoo Finance API", "React", "Typescript", "Next.js", "MongoDB", "Node.js", "Express", "Vercel"],
     links: {
       info: "https://www.stockr.info/"
     },
@@ -50,7 +51,7 @@ const projects: ProjectItem[] = [
       "Deployed on GCP a comprehensive web app using the MERN stack, implementing a role-based access control system, real-time communication with Socket.io, staff scheduling, payroll system and Eleven Labs for text-to-speech functionality ensuring accessibility",
       "Collaborated with Family Connections Center over 8 months, utilizing scrum and Jim throughout the SDLC, adopting agile principles"
     ],
-    technologies: ["MERN Stack", "GCP", "Socket.io", "Eleven Labs", "Agile"],
+    technologies: ["MongoDB", "Express", "React", "Typescript", "Next.js", "GCP", "Socket.io", "Eleven Labs", "Docker"],
     links: {
       demo: "https://www.youtube.com/watch?v=vwu5KqiraI4"
     },

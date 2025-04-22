@@ -85,11 +85,11 @@ const About = () => {
             </div>
             <div className="space-y-4 text-gray-600">
               <p className="text-gray-600 mb-6">
-                I&apos;m a software engineer and business professional who recently graduated from Western University with a dual degree in Software Engineering and Business Administration (HBA). I&apos;m passionate about building innovative solutions and creating impactful user experiences.
+                I&apos;m a software engineer and business professional who recently graduated from Western University with a dual degree in Software Engineering and Business Administration (HBA). I&apos;m focused on building robust software that creates true user value.
               </p>
               <p>
-                Throughout my academic journey, I built a strong foundation in software engineering, developing expertise 
-                in full-stack development, data engineering, and cloud technologies. This technical foundation was 
+                Throughout my academic journey, I built a strong foundation in software engineering, focusing 
+                on full-stack development, data engineering, and cloud technologies. This technical foundation was 
                 complemented by my business education at Ivey, where I honed my leadership, communication, and strategic 
                 thinking skills while maintaining a 3.9 GPA.
               </p>
@@ -102,13 +102,12 @@ const About = () => {
               <p>
                 Today, I apply this same philosophy to software development. Whether it&apos;s building data pipelines at 
                 Flowmatic, developing analytics tools at Zynga, or creating sales software at Repwave, I approach each 
-                project as an opportunity to blend technical excellence with practical business value.
+                project as an opportunity to blend technical knowledge with practical business value.
               </p>
             </div>
           </div>
 
           <div className="space-y-8">
-            {/* Life in Action Section - Now First */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -177,7 +176,6 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* Key Highlights Section - Now Second */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -217,7 +215,7 @@ const About = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                   </span>
-                  <span className="text-gray-900 text-sm">Proven track record in startups and analytics teams</span>
+                  <span className="text-gray-900 text-sm">Proven track record in fast paced startups and analytics teams</span>
                 </li>
               </ul>
             </motion.div>
