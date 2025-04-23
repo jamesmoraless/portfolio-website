@@ -30,7 +30,7 @@ const Navbar = () => {
                 cursor
                 cursorStyle=">"
                 cursorBlinking={true}
-                typeSpeed={80}
+                typeSpeed={60}
               />
             </Link>
           </div>
