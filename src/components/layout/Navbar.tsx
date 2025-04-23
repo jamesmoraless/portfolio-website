@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,7 +23,15 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center text-2xl font-bold text-gray-900">
               <img src="/favicon.ico" alt="Logo" className="w-6 h-6 mr-2 inline-block" />
-              James Morales
+              <span>~/</span>
+              <Typewriter
+                words={["James Morales"]}
+                loop={1}
+                cursor
+                cursorStyle=">"
+                cursorBlinking={true}
+                typeSpeed={80}
+              />
             </Link>
           </div>
 
