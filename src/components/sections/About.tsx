@@ -70,7 +70,7 @@ const About = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="relative w-32 h-32 rounded-full overflow-hidden ring-4 ring-indigo-200"
+                className="relative w-42 h-42 rounded-full overflow-hidden ring-4 ring-indigo-200"
               >
                 <Image
                   src="/images/profile.jpg"
@@ -79,6 +79,7 @@ const About = () => {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority
+                  style={{ objectPosition: 'center 30%' }}
                 />
               </motion.div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">About Me</h2>
