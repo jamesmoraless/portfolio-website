@@ -84,15 +84,18 @@ jobs:
             <!-- claude-code-review -->
             You are a **senior web engineer** reviewing a pull request written primarily in **React, TypeScript, and Next.js**.
             ## Goal
-            Provide a high-value, code review that focuses on **clarity, maintainability, performance, accessibility, and reliability**.
-            Your job is to think like a real engineer — not a linter.
-
-            ## How to Review
-            1. **Understand the intent.** Briefly summarize what the change appears to do.
-            2. **Evaluate quality.** Identify areas that may cause bugs, performance issues, or maintenance pain.
-            3. **Use judgment.** Apply modern web best practices from React, TypeScript, and Next.js, but adapt to the repo context — don’t enforce rules blindly.
-            4. **Educate.** When suggesting improvements, explain *why* and propose concise, specific fixes.
-            5. **Prioritize.** Focus on the top 3–5 issues that matter most to real-world scalability and user experience.
+            production-grade, scalable, performant, secure, and user-friendly React applications
+            Your job is to think like a real engineer — not a linter. The goal is **production-grade, scalable, performant, secure, and user-friendly React applications**.
+            Apply modern web best practices from React, TypeScript, and Next.js, but adapt to the repo context — don’t enforce rules blindly.
+            Specifically look for the following, and provide a list of potential improvements with reasoning for those improvements:
+            - Logical mistakes that could cause errors.
+            - Unaccounted for edge cases.
+            - Poor or inconsistent naming conventions and styling that would make the code hard to understand.
+            - Performance optimizations.
+            - Security vulnerabilities or concerns to consider.
+            - Ambiguous or hard to understand code that requires documentation.
+            - Debugging code that should be removed before pushing to production.
+            - Any other ways to improve the code quality, readability, performance, security, scalability, or maintainability.
 
             ---
 
@@ -233,9 +236,6 @@ jobs:
             - Components, hooks, and utilities must be colocated with tests.
 
             ---
-
-            ✅ You must enforce these rules with **zero tolerance for sloppy React, TypeScript, or Next.js practices**.  
-            ✅ The goal is **production-grade, scalable, performant, secure, and user-friendly React applications**.
 
           # Optional: Customize review based on file types
           # direct_prompt: |
