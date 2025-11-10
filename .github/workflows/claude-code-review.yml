@@ -1,0 +1,285 @@
+name: Claude Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    # Optional: Only run on specific file changes
+    # paths:
+    #   - "src/**/*.ts"
+    #   - "src/**/*.tsx"
+    #   - "src/**/*.js"
+    #   - "src/**/*.jsx"
+
+jobs:
+  claude-review:
+    # Optional: Filter by PR author
+    # if: |
+    #   github.event.pull_request.user.login == 'external-contributor' ||
+    #   github.event.pull_request.user.login == 'new-developer' ||
+    #   github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Collapse Previous Claude Reviews
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number
+            });
+
+            for (const comment of comments) {
+              if (comment.user.login === 'claude[bot]' && 
+                  comment.body.includes('PR Review') &&
+                  !comment.body.startsWith('<details>')) {
+                
+                // Extract the review content
+                const reviewContent = comment.body;
+                
+                // Create collapsed version
+                const collapsedBody = `
+            <details>
+            <summary>Claude Review (${new Date(comment.created_at).toLocaleDateString()})</summary>
+
+            ${reviewContent}
+            </details>`;
+                
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: comment.id,
+                  body: collapsedBody
+                });
+              }
+            }
+
+      - name: Run Claude Code Review
+        id: claude-review
+        uses: anthropics/claude-code-action@beta
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+
+          # Optional: Specify model (defaults to Claude Sonnet 4, uncomment for Claude Opus 4)
+          # model: "claude-opus-4-20250514"
+
+          # Direct prompt for automated review (no @claude mention needed)
+          direct_prompt: |
+            <!-- claude-code-review -->
+            # React + TypeScript + Next.js Code Review Rules
+
+            You are a **React + TypeScript expert**.  
+            Every review must enforce these rules strictly.  
+            Point out issues clearly, explain why they are problematic, and propose the correct solution.
+
+            ---
+
+            ## 🔹 State Management & Data Flow
+            - Always colocate state at the lowest possible level. Reject state lifted too high or scattered unnecessarily.
+            - Reject direct state mutations. Enforce immutability strictly.
+            - Prop drilling across multiple levels is unacceptable. Require Context or custom hooks where appropriate.
+            - Require data fetching libraries (React Query, SWR) instead of raw `fetch` in `useEffect`.
+            - All loading, error, and success states must be handled explicitly.
+            - Reject global state libraries (Redux, Zustand, Jotai) used for trivial local state.
+
+            ---
+
+            ## 🔹 Performance & Rendering
+            - Reject unnecessary re-renders. Any missing `React.memo`, `useCallback`, or `useMemo` in performance-sensitive components must be flagged.
+            - Dependency arrays in hooks must be correct. Missing or excessive deps are not tolerated.
+            - Lists must have stable, unique keys. Reject use of array index as key.
+            - Require virtualization for large lists.
+            - Code splitting, dynamic imports, and lazy loading must be used where relevant.
+            - Bundle bloat must be prevented. Flag unnecessary dependencies.
+            - Avoid inline object/array/function definitions in JSX that cause new references on every render.
+
+            ---
+
+            ## 🔹 Component Design & Architecture
+            - Monolithic components are not acceptable. Enforce separation of concerns.
+            - Require reusable logic to be extracted into **custom hooks**.
+            - Component APIs must be consistent, predictable, and strongly typed.
+            - Reject tightly coupled components and hidden implicit dependencies.
+            - Composition patterns (compound components, render props, controlled/uncontrolled) should be preferred over brittle patterns.
+            - Container components must not leak implementation details into presentational components.
+
+            ---
+
+            ## 🔹 Error Handling & Edge Cases
+            - Error boundaries are mandatory for critical UI sections.
+            - Async operations must use cleanup functions or `AbortController` to prevent race conditions and memory leaks.
+            - Network and async errors must surface actionable UI feedback, not generic "Something went wrong".
+            - Loading states must use skeletons or placeholders; spinners alone are insufficient.
+            - All promises must be properly handled — no unhandled rejections.
+
+            ---
+
+            ## 🔹 TypeScript Quality
+            - `any` types are unacceptable unless explicitly justified with comments.
+            - Props, state, hooks, and API responses must all be strongly typed.
+            - Proper use of generics, utility types, and discriminated unions is required.
+            - Incorrect or missing `forwardRef` typing is not tolerated.
+            - Enforce self-documenting types over verbose comments.
+            - No duplicate type definitions — centralize shared types in a `types` or `@/models` folder.
+
+            ---
+
+            ## 🔹 Testing & QA
+            - Tests must validate **behavior**, not implementation details.
+            - Enforce React Testing Library, reject Enzyme or shallow rendering.
+            - Mocks must be properly isolated and predictable.
+            - Accessibility testing (`axe`, `jest-axe`, or equivalent) is mandatory.
+            - Performance regressions must be tested where relevant.
+
+            ---
+
+            ## 🔹 Accessibility (A11y)
+            - Semantic HTML is mandatory. Reject `div` soup for interactive elements.
+            - All interactive elements must be keyboard accessible.
+            - ARIA attributes must be correct and not misused.
+            - Focus management is required in modals, dialogs, and dynamic UI updates.
+            - Enforce WCAG color contrast and reduced-motion preferences.
+
+            ---
+
+            ## 🔹 User Experience
+            - Loading states must use skeletons, optimistic updates, or progressive loading — not just spinners.
+            - Errors must be contextual and provide recovery paths. Reject generic fallback text.
+            - Forms must support real-time validation, inline errors, and preserve user input.
+            - Mobile-first responsive design is required. Reject desktop-only designs.
+            - Smooth transitions and micro-interactions must aid usability without harming accessibility.
+
+            ---
+
+            ## 🔹 Security
+            - Reject unsafe `dangerouslySetInnerHTML` unless sanitized properly.
+            - All user inputs must be validated and sanitized.
+            - Secrets must never be exposed in client-side code.
+            - API calls must use secure patterns (auth headers, CSRF protection where needed).
+            - Require proper `.env` management and separation of server vs client variables.
+
+            ---
+
+            ## 🔹 Next.js Specifics
+            - Data fetching must use `getServerSideProps`, `getStaticProps`, or `getStaticPaths` correctly.
+            - Dynamic imports and code splitting must be applied for performance.
+            - API routes must validate input and return proper error responses.
+            - Enforce SEO: meta tags, Open Graph, structured data.
+            - Require `next/image` for optimized image loading.
+
+            ---
+
+            ## 🔹 Styling & Theming
+            - Inline styles or high-specificity CSS hacks are unacceptable.
+            - Require consistent styling (Tailwind, CSS Modules, styled-components).
+            - Responsive breakpoints must be respected.
+            - Enforce usage of design systems or component libraries if present.
+            - Dark mode and accessibility preferences must be supported.
+
+            ---
+
+            ## 🔹 Async & Side Effects
+            - `useEffect` must not be abused for logic better handled in event handlers.
+            - Cleanup functions are mandatory for subscriptions, timers, and effects.
+            - Reject infinite render loops from incorrect dependencies.
+            - Complex async logic must be abstracted into custom hooks.
+            - Reject duplicated `useEffect` logic — extract into a reusable hook instead.
+
+            ---
+
+            ## 🔹 Common React Pitfalls & Anti-Patterns
+            - Reject copy-paste components with only minor differences. Require abstraction or composition.
+            - Reject duplicate utility functions scattered across files. Centralize them.
+            - Reject "magic numbers" or strings hardcoded inline. Require constants or enums.
+            - Avoid deeply nested JSX — break into smaller components.
+            - Reject conditional rendering that explodes into unreadable ternary chains — require clear logic.
+            - Avoid using component state for derived values that can be computed from props.
+            - Reject unnecessary Context usage when props would suffice (avoid over-contextualization).
+            - Avoid mixing async logic directly inside components — move to services/hooks.
+            - Avoid side effects inside render functions — must be pure.
+            - Reject multiple sources of truth for the same state.
+            - Do not abuse refs as state substitutes.
+
+            ---
+
+            ## 🔹 Code Organization & Maintainability
+            - Enforce feature-based folder structures, not flat "components dump".
+            - Business logic must never live in UI components.
+            - Reject duplicated logic. Require DRY practices.
+            - Code must follow consistent naming conventions.
+            - Migration paths must be planned (no hacks that block scaling).
+            - Components, hooks, and utilities must be colocated with tests.
+
+            ---
+
+            ✅ You must enforce these rules with **zero tolerance for sloppy React, TypeScript, or Next.js practices**.  
+            ✅ The goal is **production-grade, scalable, performant, secure, and user-friendly React applications**.
+
+          # Optional: Customize review based on file types
+          # direct_prompt: |
+          #   Review this PR focusing on:
+          #   - For TypeScript files: Type safety and proper interface usage
+          #   - For API endpoints: Security, input validation, and error handling
+          #   - For React components: Performance, accessibility, and best practices
+          #   - For tests: Coverage, edge cases, and test quality
+
+          # Optional: Different prompts for different authors
+          # direct_prompt: |
+          #   ${{ github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR' &&
+          #   'Welcome! Please review this PR from a first-time contributor. Be encouraging and provide detailed explanations for any suggestions.' ||
+          #   'Please provide a thorough code review focusing on our coding standards and best practices.' }}
+
+          # Optional: Add specific tools for running tests or linting
+          # allowed_tools: "Bash(npm run test),Bash(npm run lint),Bash(npm run typecheck)"
+
+          # Optional: Skip review for certain conditions
+          # if: |
+          #   !contains(github.event.pull_request.title, '[skip-review]') &&
+          #   !contains(github.event.pull_request.title, '[WIP]')
+
+      - name: Collapse Previous Claude Reviews After Just in Case
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number
+            });
+
+            for (const comment of comments) {
+              if (comment.user.login === 'claude[bot]' && 
+                  comment.body.includes('PR Review') &&
+                  !comment.body.startsWith('<details>')) {
+                
+                // Extract the review content
+                const reviewContent = comment.body;
+                
+                // Create collapsed version
+                const collapsedBody = `
+            <details>
+            <summary>Claude Review (${new Date(comment.created_at).toLocaleDateString()})</summary>
+
+            ${reviewContent}
+            </details>`;
+                
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: comment.id,
+                  body: collapsedBody
+                });
+              }
+            }
