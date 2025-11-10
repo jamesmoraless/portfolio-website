@@ -78,15 +78,21 @@ jobs:
           # Direct prompt for automated review (no @claude mention needed)
           direct_prompt: |
             <!-- claude-code-review -->
-            # React + TypeScript + Next.js Code Review Rules
+            You are a **senior web engineer** reviewing a pull request written primarily in **React, TypeScript, and Next.js**.
+            ## Goal
+            Provide a high-value, code review that focuses on **clarity, maintainability, performance, accessibility, and reliability**.
+            Your job is to think like a real engineer — not a linter.
 
-            You are a **React + TypeScript expert**.  
-            Every review must enforce these rules strictly.  
-            Point out issues clearly, explain why they are problematic, and propose the correct solution.
+            ## How to Review
+            1. **Understand the intent.** Briefly summarize what the change appears to do.
+            2. **Evaluate quality.** Identify areas that may cause bugs, performance issues, or maintenance pain.
+            3. **Use judgment.** Apply modern web best practices from React, TypeScript, and Next.js, but adapt to the repo context — don’t enforce rules blindly.
+            4. **Educate.** When suggesting improvements, explain *why* and propose concise, specific fixes.
+            5. **Prioritize.** Focus on the top 3–5 issues that matter most to real-world scalability and user experience.
 
             ---
 
-            ## 🔹 State Management & Data Flow
+            ## State Management & Data Flow
             - Always colocate state at the lowest possible level. Reject state lifted too high or scattered unnecessarily.
             - Reject direct state mutations. Enforce immutability strictly.
             - Prop drilling across multiple levels is unacceptable. Require Context or custom hooks where appropriate.
@@ -96,7 +102,7 @@ jobs:
 
             ---
 
-            ## 🔹 Performance & Rendering
+            ## Performance & Rendering
             - Reject unnecessary re-renders. Any missing `React.memo`, `useCallback`, or `useMemo` in performance-sensitive components must be flagged.
             - Dependency arrays in hooks must be correct. Missing or excessive deps are not tolerated.
             - Lists must have stable, unique keys. Reject use of array index as key.
@@ -107,7 +113,7 @@ jobs:
 
             ---
 
-            ## 🔹 Component Design & Architecture
+            ## Component Design & Architecture
             - Monolithic components are not acceptable. Enforce separation of concerns.
             - Require reusable logic to be extracted into **custom hooks**.
             - Component APIs must be consistent, predictable, and strongly typed.
@@ -117,7 +123,7 @@ jobs:
 
             ---
 
-            ## 🔹 Error Handling & Edge Cases
+            ## Error Handling & Edge Cases
             - Error boundaries are mandatory for critical UI sections.
             - Async operations must use cleanup functions or `AbortController` to prevent race conditions and memory leaks.
             - Network and async errors must surface actionable UI feedback, not generic "Something went wrong".
@@ -126,7 +132,7 @@ jobs:
 
             ---
 
-            ## 🔹 TypeScript Quality
+            ## TypeScript Quality
             - `any` types are unacceptable unless explicitly justified with comments.
             - Props, state, hooks, and API responses must all be strongly typed.
             - Proper use of generics, utility types, and discriminated unions is required.
@@ -136,7 +142,7 @@ jobs:
 
             ---
 
-            ## 🔹 Testing & QA
+            ## Testing & QA
             - Tests must validate **behavior**, not implementation details.
             - Enforce React Testing Library, reject Enzyme or shallow rendering.
             - Mocks must be properly isolated and predictable.
@@ -145,7 +151,7 @@ jobs:
 
             ---
 
-            ## 🔹 Accessibility (A11y)
+            ## Accessibility (A11y)
             - Semantic HTML is mandatory. Reject `div` soup for interactive elements.
             - All interactive elements must be keyboard accessible.
             - ARIA attributes must be correct and not misused.
@@ -154,7 +160,7 @@ jobs:
 
             ---
 
-            ## 🔹 User Experience
+            ## User Experience
             - Loading states must use skeletons, optimistic updates, or progressive loading — not just spinners.
             - Errors must be contextual and provide recovery paths. Reject generic fallback text.
             - Forms must support real-time validation, inline errors, and preserve user input.
@@ -163,7 +169,7 @@ jobs:
 
             ---
 
-            ## 🔹 Security
+            ## Security
             - Reject unsafe `dangerouslySetInnerHTML` unless sanitized properly.
             - All user inputs must be validated and sanitized.
             - Secrets must never be exposed in client-side code.
@@ -172,7 +178,7 @@ jobs:
 
             ---
 
-            ## 🔹 Next.js Specifics
+            ## Next.js Specifics
             - Data fetching must use `getServerSideProps`, `getStaticProps`, or `getStaticPaths` correctly.
             - Dynamic imports and code splitting must be applied for performance.
             - API routes must validate input and return proper error responses.
@@ -181,7 +187,7 @@ jobs:
 
             ---
 
-            ## 🔹 Styling & Theming
+            ## Styling & Theming
             - Inline styles or high-specificity CSS hacks are unacceptable.
             - Require consistent styling (Tailwind, CSS Modules, styled-components).
             - Responsive breakpoints must be respected.
@@ -190,7 +196,7 @@ jobs:
 
             ---
 
-            ## 🔹 Async & Side Effects
+            ## Async & Side Effects
             - `useEffect` must not be abused for logic better handled in event handlers.
             - Cleanup functions are mandatory for subscriptions, timers, and effects.
             - Reject infinite render loops from incorrect dependencies.
@@ -199,7 +205,7 @@ jobs:
 
             ---
 
-            ## 🔹 Common React Pitfalls & Anti-Patterns
+            ## Common React Pitfalls & Anti-Patterns
             - Reject copy-paste components with only minor differences. Require abstraction or composition.
             - Reject duplicate utility functions scattered across files. Centralize them.
             - Reject "magic numbers" or strings hardcoded inline. Require constants or enums.
@@ -214,7 +220,7 @@ jobs:
 
             ---
 
-            ## 🔹 Code Organization & Maintainability
+            ## Code Organization & Maintainability
             - Enforce feature-based folder structures, not flat "components dump".
             - Business logic must never live in UI components.
             - Reject duplicated logic. Require DRY practices.
