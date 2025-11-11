@@ -22,10 +22,10 @@ const experiences: ExperienceItem[] = [
     location: "Toronto, ON",
     period: "November 2025 - Present",
     description: [
-      "Led designer, developer, and client relations teams to deliver features quickly, managing the entire product lifecycle from conception to launch",
-      "Conducted discovery calls with stakeholders and technical teams to gather requirements, breaking down complex technical and architectural requirements into actionable development tasks",
-      "Implement agile methodologies and sprint planning processes, improving team velocity and delivery predictability by 25%",
-      "Built an internal ticket management and tracking tool to streamline workflow processes and improve team productivity"
+      "Led designer, developer, and client relations teams using agile methodologies, managing the entire product lifecycle from conception to launch",
+      "Built internal automated CI pipelines for tracking developer daily and weekly progress reports, increasing team productivity by 30%",
+      "Developed an automated Claude code review bot for pull requests, improving code quality and reducing manual review time",
+      "Conducted discovery calls alongside sales teams for technically complex projects, breaking down architectural requirements into actionable development tasks"
     ],
     technologies: ["Agile", "Scrum", "Product Management", "Jira", "Confluence", "Stakeholder Management", "Roadmap Planning"],
     companyLogo: "",
