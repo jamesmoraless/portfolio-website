@@ -65,6 +65,15 @@ jobs:
                 });
               }
             }
+              
+      - name: Cache Claude CLI
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.claude
+            ~/.local/bin/claude
+          key: ${{ runner.os }}-claude-cli-v1
+
 
       - name: Run Claude Code Review
         id: claude-review
