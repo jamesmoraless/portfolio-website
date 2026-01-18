@@ -36,13 +36,13 @@ const experiences: ExperienceItem[] = [
     title: "Software Engineer",
     company: "Flowmatic",
     location: "Toronto, ON",
-    period: "November 2024 - November 2025",
+    period: "November 2024 - May 2025",
     description: [
-      "Deployed an ETL pipeline utilizing Airflow, PostgreSQL, and AWS EC2 to efficiently process and manage over 10,000 customer data points; enhancing data collection and usability",
-      "Synchronized backend and frontend systems by integrating FastAPI schemas with automated TypeScript type generation, boosting API development speed",
-      "Deployed a demo environment with mock data to showcase the product to potential customers, ensuring data privacy and anonimity of current customers"
+      "Launched an OpenAI-driven email composer that pulls invoice, contract and customer data, cutting rep prep from 30 min to 1 min and standardizing customer outreach",
+      "Deployed a PostgreSQL MCP server on AWS Lightsail Containers, enabling natural language to query data in tabular and graphical formats, powering self-serve analytics",
+      "Built an anonymized PostgreSQL demo environment, enabling realistic product demos without violating customer-data compliance"
     ],
-    technologies: ["Airflow", "Grafana", "PostgreSQL", "Docker", "AWS Lightsail", "AWS EC2", "FastAPI", "TypeScript", "Next.js"],
+    technologies: ["OpenAI API", "Airflow", "PostgreSQL", "Docker", "AWS EC2", "FastAPI", "TypeScript", "Next.js"],
     companyLogo: "/images/flowmatic-logo.png",
     companyUrl: "https://www.withflowmatic.com/",
     screenshot: "/images/flowmatic-site.png"
