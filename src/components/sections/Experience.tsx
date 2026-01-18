@@ -17,20 +17,20 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Product Delivery Manager",
-    company: "Temppo Labs",
+    title: "Product Manager",
+    company: "Tempo Labs",
     location: "Toronto, ON",
     period: "November 2025 - Present",
     description: [
-      "Led designer, developer, and client relations teams to deliver features quickly, managing the entire product lifecycle from conception to launch",
-      "Conducted discovery calls with stakeholders and technical teams to gather requirements, breaking down complex technical and architectural requirements into actionable development tasks",
-      "Implement agile methodologies and sprint planning processes, improving team velocity and delivery predictability by 25%",
-      "Built an internal ticket management and tracking tool to streamline workflow processes and improve team productivity"
+      "Manage product development end-to-end for 7 clients, effectively overseeing $700K+ of ARR across design, development, and delivery.",
+      "Built and shipped an internal full-stack operating platform (self-initiated, later adopted org-wide) now used daily to manage 30+ clients and 50+ engineers, unifying delivery analytics, capacity planning, and client intelligence into a single system.",
+      "Implemented automated developer activity tracking and code-quality scoring (PR analysis, daily summaries, calendar views), enabling data-driven developer and client rankings that inform staffing, performance, and delivery risk.",
+      "Deployed a central agent orchestration system with a chatbot and specialized sub-agents (PRD, user flows, UI specs, meeting insights, client profiler with web scraping) grounded in each client's repos and knowledge base, reducing feature-to-design cycle time by ~70%."
     ],
-    technologies: ["Agile", "Scrum", "Product Management", "Jira", "Confluence", "Stakeholder Management", "Roadmap Planning"],
-    companyLogo: "",
-    companyUrl: "",
-    screenshot: ""
+    technologies: ["React", "TypeScript", "Next.js", "Supabase", "PostgreSQL", "AI Agents", "Product Management", "Agile", "Scrum", "Tempo.AI", "Trello", "Linear"],
+    companyLogo: "/images/tempo-logo.png",
+    companyUrl: "https://www.tempolabs.ai/",
+    screenshot: "/images/tempo-site.png"
   },
   {
     title: "Software Engineer",
@@ -39,7 +39,7 @@ const experiences: ExperienceItem[] = [
     period: "November 2024 - Present",
     description: [
       "Deployed an ETL pipeline utilizing Airflow, PostgreSQL, and AWS EC2 to efficiently process and manage over 10,000 customer data points; enhancing data collection and usability",
-      "Synchronized backend and frontend systems by integrating FastAPI schemas with automated TypeScript type generation, boosting API development speed", 
+      "Synchronized backend and frontend systems by integrating FastAPI schemas with automated TypeScript type generation, boosting API development speed",
       "Deployed a demo environment with mock data to showcase the product to potential customers, ensuring data privacy and anonimity of current customers"
     ],
     technologies: ["Airflow", "Grafana", "PostgreSQL", "Docker", "AWS Lightsail", "AWS EC2", "FastAPI", "TypeScript", "Next.js"],
@@ -86,7 +86,7 @@ const experiences: ExperienceItem[] = [
       "Led Scrum meetings, managed work items and ensured timely execution of tasks; increasing sprint velocity by 18% over 8 sprints",
       "Created a dynamic dashboard on Azure DevOps to monitor task completion and team productivity with the use of Burndown, Gantt Charts, and graphs, providing transparent progress reports to clients, improving client satisfaction"
     ],
-    technologies: ["Azure DevOps", "Google Project Management Cert","Scrum", "Agile"],
+    technologies: ["Azure DevOps", "Google Project Management Cert", "Scrum", "Agile"],
     companyLogo: "/images/ontario-health-logo.png",
     companyUrl: "https://www.ontariohealth.ca/",
     screenshot: "/images/ontario-health-site.png"
