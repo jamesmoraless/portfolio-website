@@ -29,7 +29,7 @@ const experiences: ExperienceItem[] = [
     ],
     technologies: ["React", "TypeScript", "Next.js", "Supabase", "PostgreSQL", "AI Agents", "Product Management", "Agile", "Scrum", "Tempo.AI", "Trello", "Linear"],
     companyLogo: "/images/tempo-logo.png",
-    companyUrl: "https://www.tempolabs.ai/",
+    companyUrl: "https://www.tempo.new/",
     screenshot: "/images/tempo-site.png"
   },
   {
