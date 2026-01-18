@@ -36,7 +36,7 @@ const experiences: ExperienceItem[] = [
     title: "Software Engineer",
     company: "Flowmatic",
     location: "Toronto, ON",
-    period: "November 2024 - Present",
+    period: "November 2024 - November 2025",
     description: [
       "Deployed an ETL pipeline utilizing Airflow, PostgreSQL, and AWS EC2 to efficiently process and manage over 10,000 customer data points; enhancing data collection and usability",
       "Synchronized backend and frontend systems by integrating FastAPI schemas with automated TypeScript type generation, boosting API development speed",
