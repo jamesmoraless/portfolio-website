@@ -18,6 +18,21 @@ interface ProjectItem {
 
 const projects: ProjectItem[] = [
   {
+    title: "Atlas Code - Automated Technical Debt Resolution GitHub App",
+    period: "January 2026",
+    description: [
+      "Built an AI-powered GitHub App that continuously monitors codebases, detects technical debt, and automatically opens targeted pull requests with precise fixes for security vulnerabilities, duplicated logic, and maintainability issues",
+      "Engineered specialized sub-agents (security, reliability, DRY, maintainability) that analyze code changes on every push to main, generating context-aware fixes with clear explanations",
+      "Implemented a centralized debt tracking database using Supabase to prevent duplicate findings and automatically resolve issues upon PR merge"
+    ],
+    technologies: ["GitHub Apps", "Github Actions", "Supabase", "TypeScript", "AI Agents", "PostgreSQL", "Vercel"],
+    links: {
+      demo: "https://www.youtube.com/watch?v=MhSbGI2JdPM",
+      info: "https://8090-hackathon.vercel.app"
+    },
+    image: "/images/debtfixer.png"
+  },
+  {
     title: "Capstone: London Transit Delays - 1st Place Winner",
     period: "Fall 2024 - Spring 2025",
     description: [
@@ -38,7 +53,7 @@ const projects: ProjectItem[] = [
       "Engineered an AI agent using the OpenAI API that analyzes personal portfolios and delivers personalized financial advice, leveraging insights from corporate financial reporting, finance and accounting coursework",
       "Developed a real-time finance dashboard integrating market data, portfolio tracking, and interactive visualizations utilizing open source libraries such as Chart.js and APIs such as Alpha Vantage, IEX Cloud, Yahoo Finance, and OpenAI"
     ],
-    technologies: ["OpenAI API", "Docker","Chart.js", "Alpha Vantage API", "IEX Cloud", "Yahoo Finance API", "React", "Typescript", "Next.js", "MongoDB", "Node.js", "Express", "Vercel"],
+    technologies: ["OpenAI API", "Docker", "Chart.js", "Alpha Vantage API", "IEX Cloud", "Yahoo Finance API", "React", "Typescript", "Next.js", "MongoDB", "Node.js", "Express", "Vercel"],
     links: {
       info: "https://www.stockr.info/"
     },

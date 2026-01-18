@@ -15,6 +15,14 @@ interface Project {
 
 const projects: Project[] = [
   {
+    year: '2026',
+    title: 'Atlas Code - Automated Technical Debt Resolution',
+    builtWith: ['GitHub Apps', 'Supabase', 'TypeScript', 'AI Agents', 'PostgreSQL', 'Vercel', 'Github Actions'],
+    links: {
+      external: 'https://www.youtube.com/watch?v=MhSbGI2JdPM'
+    }
+  },
+  {
     year: '2025',
     title: 'London Transit Delays',
     builtWith: ['Node.js', 'Express', 'MongoDB', 'Python', 'Pandas', 'Scikit-learn', 'TensorFlow'],
