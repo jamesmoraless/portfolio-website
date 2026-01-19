@@ -22,9 +22,10 @@ const experiences: ExperienceItem[] = [
     location: "Toronto, ON",
     period: "November 2025 - Present",
     description: [
-      "Manage product development end-to-end for 7 clients, overseeing $700K+ of ARR across discovery, design, development, and delivery.",
-      "Built and shipped an internal ops platform managing 30+ clients and 50+ engineers—unifying capacity planning, client health tracking, and automated GitHub activity tracking with AI-powered code quality scoring and summarization, enabling org-wide visibility and data-driven decision-making.",
-      "Deployed a multi-agent orchestration system with Claude-powered specialized sub-agents (PRD generator, user flow creator, UI spec writer, repo analyzer, client profiler) grounded in client repositories and meeting transcripts, reducing feature-to-design cycle time by 70%."
+      "Manage end-to-end product development for 7 clients, overseeing $700K+ of ARR across discovery, design, development, and delivery.",
+      "Built and shipped an internal full-stack operating platform (self-initiated, later adopted org-wide) now used daily to manage 30+ clients and 50+ engineers, unifying code delivery analytics, capacity planning, and client intelligence into a single system, enabling org-wide visibility and data-driven decision-making.",
+      "Implemented automated developer activity tracking and code-quality scoring (PR analysis, daily summaries, calendar views), enabling data-driven developer and client rankings that inform staffing, performance, and delivery risk.",
+      "Deployed a central agent orchestration system with a chatbot and specialized sub-agents (PRD, user flows, UI specs, meeting insights, client profiler with web scraping) grounded in each client's repos and knowledge base, reducing feature-to-design cycle time by ~70%."
     ],
     technologies: ["React", "TypeScript", "Supabase", "AI Agents", "Product Management", "Agile", "Scrum", "Tempo", "Trello", "Linear"],
     companyLogo: "/images/tempo-logo.png",
