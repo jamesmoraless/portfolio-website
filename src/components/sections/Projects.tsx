@@ -72,19 +72,6 @@ const projects: ProjectItem[] = [
     },
     image: "/images/cheer-web-app.jpg"
   },
-  {
-    title: "Superhero Community Platform Web App",
-    period: "Fall 2023",
-    description: [
-      "Developed a HeroHub, a full-stack web application using the PERN stack (PostgreSQL, Express, React, Node.js), enabling users to explore, manage, and review a comprehensive superhero database",
-      "Deployed on AWS EC2 and managed server configs, security groups, and storage optimization for efficient cloud-based operations"
-    ],
-    technologies: ["PostgreSQL", "Express", "React", "Node.js", "AWS EC2"],
-    links: {
-      github: "https://github.com/jamesmoraless/Hero-Hub-PERN-Stack"
-    },
-    image: "/images/superhero-community-platform.jpg"
-  }
 ];
 
 const Projects = () => {
