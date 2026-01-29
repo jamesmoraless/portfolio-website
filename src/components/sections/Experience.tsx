@@ -17,7 +17,7 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "TechnicalProduct Manager",
+    title: "Technical Product Manager",
     company: "Tempo Labs",
     location: "Toronto, ON",
     period: "November 2025 - Present",
