@@ -17,12 +17,12 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Product Manager",
+    title: "TechnicalProduct Manager",
     company: "Tempo Labs",
     location: "Toronto, ON",
     period: "November 2025 - Present",
     description: [
-      "Manage end-to-end product development for 7 clients, overseeing $700K+ of ARR across discovery, design, development, and delivery.",
+      "Manage end-to-end product development, overseeing $700K+ of ARR across discovery, design, development, and delivery.",
       "Built and shipped an internal full-stack operating platform (self-initiated, later adopted org-wide) now used daily to manage 30+ clients and 50+ engineers, unifying code delivery analytics, capacity planning, and client intelligence into a single system, enabling org-wide visibility and data-driven decision-making.",
       "Implemented automated developer activity tracking and code-quality scoring (PR analysis, daily summaries, calendar views), enabling data-driven developer and client rankings that inform staffing, performance, and delivery risk.",
       "Deployed a central agent orchestration system with a chatbot and specialized sub-agents (PRD, user flows, UI specs, meeting insights, client profiler with web scraping) grounded in each client's repos and knowledge base, reducing feature-to-design cycle time by ~70%."
