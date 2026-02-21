@@ -17,7 +17,7 @@ const Hero = () => {
             James Morales
           </h1>
           <h2 className="text-lg md:text-xl text-indigo-700 mb-4 font-medium">
-            Technical Product Manager and Builder
+            Technical Product Manager and Full Stack Engineer
           </h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
