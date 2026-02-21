@@ -25,7 +25,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-base md:text-lg text-gray-700 max-w-xl mb-6 leading-relaxed"
           >
-            Designing and building software that solves real problems, blending engineering expertise with a sharp focus on customer value.
+            Designing and building software that solves real problems, blending engineering expertise with a sharp focus on product vision and delivery.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
