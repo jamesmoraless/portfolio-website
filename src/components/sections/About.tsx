@@ -84,29 +84,17 @@ const About = () => {
               </motion.div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">About Me</h2>
             </div>
-            <div className="space-y-4 text-gray-600">
+<div className="space-y-4 text-gray-600">
               <p className="text-gray-600 mb-6">
-                I&apos;m a software engineer and business professional who recently graduated from Western University with a dual degree in Software Engineering and Business Administration (HBA). I&apos;m focused on building robust software that creates true user value.
+                I&apos;m a software engineer and product builder. I like the kind of work where you&apos;re talking to users in the morning and pushing code in the afternoon.
               </p>
               <p>
-                Throughout my academic journey, I built a strong foundation in software engineering, focusing 
-                on full-stack development, data engineering, and cloud technologies. This technical foundation was 
-                complemented by my business education at Ivey, where I honed my leadership, communication, and strategic 
-                thinking skills while maintaining a 3.9 GPA.
+                Currently a Technical Product Manager at Tempo Labs (YC23), where I manage $700K+ in ARR, build internal tooling used daily across the company, and deploy multi-agent orchestration systems with Claude-powered sub-agents. Before Tempo, I shipped AI-powered features at Flowmatic, built analytics tools at Zynga for games like Harry Potter: Puzzles &amp; Spells and Words With Friends 2, and plugged AI micro-services into CRMs at Repwave.
               </p>
               <p>
-                What drives me is the satisfaction of seeing a project through from concept to completion. This passion 
-                was instilled early on, working alongside my father in concrete construction. Those experiences taught 
-                me the value of craftsmanship and the joy of delivering solutions that make a real difference in 
-                people&apos;s lives.
+                The drive to build things well started early, working alongside my father in concrete construction. Those experiences taught me the value of craftsmanship and seeing a project through from concept to completion. I bring that same mindset to software, whether it&apos;s agentic systems, data pipelines, or full-stack products from scratch.
               </p>
-              <p>
-                Today, I apply this same philosophy to software development. Whether it&apos;s building data pipelines at 
-                Flowmatic, developing analytics tools at Zynga, or creating sales software at Repwave, I approach each 
-                project as an opportunity to blend technical knowledge with practical business value.
-              </p>
-            </div>
-          </div>
+            </div>          </div>
 
           <div className="space-y-8">
             <motion.div
@@ -208,7 +196,7 @@ const About = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                   </span>
-                  <span className="text-gray-900 text-sm">Strong foundation in both technical development and business strategy</span>
+                  <span className="text-gray-900 text-sm">Strong foundation in both technical development and product vision + execution</span>
                 </li>
                 <li className="flex items-start">
                   <span className="flex-shrink-0 p-0.5 bg-gray-900 rounded-full mr-2 mt-1.5">
