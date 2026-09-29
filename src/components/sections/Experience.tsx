@@ -98,7 +98,7 @@ const experiences: ExperienceItem[] = [
     title: 'Software Engineering Intern - Analytics',
     company: 'Zynga Inc.',
     location: 'Toronto, ON',
-    period: 'May 2024 - September 2024',
+    period: 'May 2024 - August 2024',
     description: [
       'Developed and deployed a new feature using React, Python, Airflow and Redshift enabling game team analysts to perform experimental segmentation and visualize target metric results for product managers; successfully used for Harry Potter and Words With Friends 2',
       'Updated the architecture of an internal data service tool, resulting in a $250k annual cost reduction and improved system efficiency',
@@ -125,7 +125,7 @@ const experiences: ExperienceItem[] = [
     screenshot: '/images/zynga-site.png',
   },
   {
-    title: 'Software Developer',
+    title: 'Software Developer Intern',
     company: 'Repwave',
     location: 'Remote',
     period: 'November 2023 - March 2024',
@@ -143,9 +143,9 @@ const experiences: ExperienceItem[] = [
     title: 'Business Systems Analyst Intern',
     company: 'Ontario Health – Digital Services',
     location: 'Toronto, ON',
-    period: 'May 2023 - September 2023',
+    period: 'May 2023 - August 2023',
     description: [
-      'Led Scrum meetings, managed work items and ensured timely execution of tasks; increasing sprint velocity by 18% over 8 sprints',
+      'Led Scrum meetings, managed work items and ensured timely execution of tasks; increasing sprint velocity by 18% across 4 iterations',
       'Created a dynamic dashboard on Azure DevOps to monitor task completion and team productivity with the use of Burndown, Gantt Charts, and graphs, providing transparent progress reports to clients, improving client satisfaction',
     ],
     technologies: ['Azure DevOps', 'Google Project Management Cert', 'Scrum', 'Agile'],
@@ -168,7 +168,7 @@ const Experience = () => {
     <section id="experience" className="bg-ink-bg py-20 lg:py-24">
       <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-20">
         <SectionHead
-          index="04"
+          index="03"
           title="Work Experience"
           sub="My professional journey and contributions"
           right={<ArrowLink href="/resume.pdf" external>View Full Resume</ArrowLink>}

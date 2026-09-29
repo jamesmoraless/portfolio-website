@@ -12,35 +12,12 @@ import { SectionHead, enterAt } from '@/components/ui/sharp';
  * hairlines. Nothing moves; hovering a row is the only reward.
  */
 const groups: { label: string; items: string[] }[] = [
+  { label: 'Languages', items: ['Python', 'TypeScript', 'Java', 'Go', 'SQL'] },
+  { label: 'Frameworks', items: ['React', 'Next.js', 'Node.js', 'FastAPI', 'Django'] },
+  { label: 'AI & Data', items: ['Claude', 'OpenAI', 'MCP', 'Supabase', 'PostgreSQL'] },
   {
-    label: 'Languages & Frameworks',
-    items: [
-      'HTML5',
-      'CSS3',
-      'JavaScript',
-      'TypeScript',
-      'Python',
-      'React',
-      'Node.js',
-      'Express',
-      'Flask',
-      'Next.js',
-    ],
-  },
-  { label: 'Databases', items: ['PostgreSQL', 'MongoDB', 'MySQL'] },
-  { label: 'Cloud', items: ['AWS', 'GCP', 'Docker', 'Kubernetes', 'Terraform'] },
-  {
-    label: 'Tools & DevOps',
-    items: [
-      'Git',
-      'GitHub',
-      'Jenkins',
-      'Apache Airflow',
-      'Splunk',
-      'Postman',
-      'Figma',
-      'Tailwind CSS',
-    ],
+    label: 'Cloud & Tools',
+    items: ['AWS', 'GCP', 'Docker', 'GitHub Actions', 'Azure DevOps', 'Figma'],
   },
 ];
 

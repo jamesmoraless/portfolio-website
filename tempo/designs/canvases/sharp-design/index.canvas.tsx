@@ -45,7 +45,7 @@ export default function SharpDesignCanvas() {
         id="TechStack"
         name="01 · Tech Stack"
         component={TechStack}
-        layout={{ x: 0, y: 2550, width: 1440, height: 620, intrinsicSizing: "root-element" }}
+        layout={{ x: 0, y: 2550, width: 1440, height: 470, intrinsicSizing: "root-element" }}
       />
       <Storyboard
         id="About"
@@ -54,17 +54,19 @@ export default function SharpDesignCanvas() {
         layout={{ x: 1560, y: 2550, width: 1440, height: 940, intrinsicSizing: "root-element" }}
       />
 
-      <Storyboard
-        id="Education"
-        name="03 · Education"
-        component={Education}
-        layout={{ x: 0, y: 3650, width: 1440, height: 930, intrinsicSizing: "root-element" }}
-      />
+      {/* Experience leads, Education follows: the work is the stronger story,
+          so the page should not open on a student CV. */}
       <Storyboard
         id="Experience"
-        name="04 · Work Experience"
+        name="03 · Work Experience"
         component={Experience}
-        layout={{ x: 1560, y: 3650, width: 1440, height: 2660, intrinsicSizing: "root-element" }}
+        layout={{ x: 0, y: 3650, width: 1440, height: 2660, intrinsicSizing: "root-element" }}
+      />
+      <Storyboard
+        id="Education"
+        name="04 · Education"
+        component={Education}
+        layout={{ x: 1560, y: 3650, width: 1440, height: 930, intrinsicSizing: "root-element" }}
       />
 
       <Storyboard

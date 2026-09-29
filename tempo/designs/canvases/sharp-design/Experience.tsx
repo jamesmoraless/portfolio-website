@@ -16,7 +16,7 @@ export default function Experience() {
     <Board h={2660}>
       <div style={{ height: 40 }} />
       <SectionHead
-        index="04"
+        index="03"
         title={EXPERIENCE.heading}
         sub={EXPERIENCE.sub}
         right={<ArrowLink>{EXPERIENCE.resumeLink}</ArrowLink>}

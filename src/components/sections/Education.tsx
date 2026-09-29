@@ -67,7 +67,7 @@ const Education = () => {
     <section id="education" className="bg-ink-bg py-20 lg:py-24">
       <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-20">
         <SectionHead
-          index="03"
+          index="04"
           title="Education"
           sub="Academic qualifications and achievements"
         />

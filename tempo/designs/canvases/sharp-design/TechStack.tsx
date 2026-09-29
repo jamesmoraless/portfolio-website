@@ -18,7 +18,7 @@ export default function TechStack() {
   const hovered = "TypeScript";
 
   return (
-    <Board h={620}>
+    <Board h={470}>
       <div style={{ height: 40 }} />
       <SectionHead index="01" title="Tech Stack" />
 

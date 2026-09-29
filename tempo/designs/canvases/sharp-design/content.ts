@@ -7,8 +7,8 @@
 export const NAV = [
   { label: "Home", path: "/" },
   { label: "About", path: "/#about" },
-  { label: "Education", path: "/#education" },
   { label: "Experience", path: "/#experience" },
+  { label: "Education", path: "/#education" },
   { label: "Projects", path: "/#projects" },
   { label: "Contact", path: "/#contact" },
 ];
@@ -26,35 +26,12 @@ export const HERO = {
 
 /** Groupings are the ones already commented in TechStack.tsx. */
 export const TECH_GROUPS: { label: string; items: string[] }[] = [
+  { label: "Languages", items: ["Python", "TypeScript", "Java", "Go", "SQL"] },
+  { label: "Frameworks", items: ["React", "Next.js", "Node.js", "FastAPI", "Django"] },
+  { label: "AI & Data", items: ["Claude", "OpenAI", "MCP", "Supabase", "PostgreSQL"] },
   {
-    label: "Languages & Frameworks",
-    items: [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "TypeScript",
-      "Python",
-      "React",
-      "Node.js",
-      "Express",
-      "Flask",
-      "Next.js",
-    ],
-  },
-  { label: "Databases", items: ["PostgreSQL", "MongoDB", "MySQL"] },
-  { label: "Cloud", items: ["AWS", "GCP", "Docker", "Kubernetes", "Terraform"] },
-  {
-    label: "Tools & DevOps",
-    items: [
-      "Git",
-      "GitHub",
-      "Jenkins",
-      "Apache Airflow",
-      "Splunk",
-      "Postman",
-      "Figma",
-      "Tailwind CSS",
-    ],
+    label: "Cloud & Tools",
+    items: ["AWS", "GCP", "Docker", "GitHub Actions", "Azure DevOps", "Figma"],
   },
 ];
 
@@ -62,7 +39,7 @@ export const ABOUT = {
   heading: "About Me",
   paragraphs: [
     // [0] is the lede beside the portrait; [1..] are the body paragraphs.
-    "I'm a Technical PM with a dual background in Software Engineering and Business (Ivey HBA), taking AI products from client discovery to production code.",
+    "I'm a Technical PM with a dual background in Software Engineering and Business (Ivey HBA), taking products from client discovery to production code.",
     "My work spans client discovery, designing real screens, and owning end-to-end delivery, alongside engineering agentic workflows and ingestion pipelines. I've built a fast, repeatable delivery process by staying hands-on through every stage: discovery, design, development, and iterating on feedback. My engineering half means I can ship it. The business half means I know why it matters.",
     "I work AI-native. LLMs and agents are part of how I design, build, and deliver.",
   ],
@@ -225,7 +202,7 @@ export const EXPERIENCE = {
       title: "Software Engineering Intern - Analytics",
       company: "Zynga Inc.",
       location: "Toronto, ON",
-      period: "May 2024 - September 2024",
+      period: "May 2024 - August 2024",
       description: [
         "Developed and deployed a new feature using React, Python, Airflow and Redshift enabling game team analysts to perform experimental segmentation and visualize target metric results for product managers; successfully used for Harry Potter and Words With Friends 2",
         "Updated the architecture of an internal data service tool, resulting in a $250k annual cost reduction and improved system efficiency",
@@ -268,9 +245,9 @@ export const EXPERIENCE = {
       title: "Business Systems Analyst Intern",
       company: "Ontario Health – Digital Services",
       location: "Toronto, ON",
-      period: "May 2023 - September 2023",
+      period: "May 2023 - August 2023",
       description: [
-        "Led Scrum meetings, managed work items and ensured timely execution of tasks; increasing sprint velocity by 18% over 8 sprints",
+        "Led Scrum meetings, managed work items and ensured timely execution of tasks; increasing sprint velocity by 18% across 4 iterations",
         "Created a dynamic dashboard on Azure DevOps to monitor task completion and team productivity with the use of Burndown, Gantt Charts, and graphs, providing transparent progress reports to clients, improving client satisfaction",
       ],
       technologies: ["Azure DevOps", "Google Project Management Cert", "Scrum", "Agile"],
@@ -327,7 +304,7 @@ export const PROJECTS = {
     },
     {
       title: "Stockr",
-      period: "Fall 2024 - Present",
+      period: "Fall 2024",
       description: [
         "Engineered an AI agent using the OpenAI API that analyzes personal portfolios and delivers personalized financial advice, leveraging insights from corporate financial reporting, finance and accounting coursework",
         "Developed a real-time finance dashboard integrating market data, portfolio tracking, and interactive visualizations utilizing open source libraries such as Chart.js and APIs such as Alpha Vantage, IEX Cloud, Yahoo Finance, and OpenAI",
@@ -347,7 +324,8 @@ export const PROJECTS = {
         "Express",
         "Vercel",
       ],
-      links: ["Live Site"],
+      // No links: stockr.info is deprecated and the domain no longer resolves.
+      links: [],
     },
     {
       title: "Cheer Web App",
@@ -377,7 +355,7 @@ export const CONTACT = {
   sub: "Let's talk!",
   infoTitle: "Contact Information",
   email: "jmorales.hba2025@ivey.ca",
-  address: "435 Richmond St West, Toronto, ON",
+  address: "Toronto, ON, Canada",
   phone: "(519) 817-9957",
   connectTitle: "Connect",
   socials: ["GitHub", "LinkedIn", "X", "Instagram"],
@@ -414,10 +392,10 @@ export const ARCHIVE = {
       links: ["Demo"],
     },
     {
-      year: "2025",
+      year: "2024",
       title: "Stockr",
       builtWith: ["OpenAI API", "Chart.js", "Alpha Vantage API", "IEX Cloud", "Yahoo Finance API"],
-      links: ["Live Site"],
+      links: [],
     },
     {
       year: "2024",

@@ -61,7 +61,7 @@ const projects: ProjectItem[] = [
   },
   {
     title: 'Stockr',
-    period: 'Fall 2024 - Present',
+    period: 'Fall 2024',
     description: [
       'Engineered an AI agent using the OpenAI API that analyzes personal portfolios and delivers personalized financial advice, leveraging insights from corporate financial reporting, finance and accounting coursework',
       'Developed a real-time finance dashboard integrating market data, portfolio tracking, and interactive visualizations utilizing open source libraries such as Chart.js and APIs such as Alpha Vantage, IEX Cloud, Yahoo Finance, and OpenAI',
@@ -81,7 +81,7 @@ const projects: ProjectItem[] = [
       'Express',
       'Vercel',
     ],
-    links: { info: 'https://www.stockr.info/' },
+    // No links: stockr.info is deprecated and the domain no longer resolves.
   },
   {
     title: 'Cheer Web App',

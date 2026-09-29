@@ -13,7 +13,7 @@ export default function Education() {
   return (
     <Board h={930}>
       <div style={{ height: 40 }} />
-      <SectionHead index="03" title={EDUCATION.heading} sub={EDUCATION.sub} />
+      <SectionHead index="04" title={EDUCATION.heading} sub={EDUCATION.sub} />
 
       <div style={{ height: 1, background: INK.hairStrong }} />
 

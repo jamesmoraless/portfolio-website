@@ -6,7 +6,7 @@ import { Rule, enter } from '@/components/ui/sharp';
 
 const channels = [
   { label: 'Email', value: 'jmorales.hba2025@ivey.ca', href: 'mailto:jmorales.hba2025@ivey.ca' },
-  { label: 'Location', value: '435 Richmond St West, Toronto, ON' },
+  { label: 'Location', value: 'Toronto, ON, Canada' },
   { label: 'Phone', value: '(519) 817-9957', href: 'tel:+15198179957' },
 ];
 

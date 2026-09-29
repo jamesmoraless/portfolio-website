@@ -64,7 +64,7 @@ const About = () => {
                 <span className="lbl">Toronto, ON</span>
                 <p className="mt-3 max-w-[520px] text-[21px] leading-[1.55] tracking-[-0.011em] text-ink">
                   I&apos;m a Technical PM with a dual background in Software Engineering and
-                  Business (Ivey HBA), taking AI products from client discovery to production code.
+                  Business (Ivey HBA), taking products from client discovery to production code.
                 </p>
               </div>
             </div>

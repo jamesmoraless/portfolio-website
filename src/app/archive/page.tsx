@@ -27,10 +27,10 @@ const projects: Project[] = [
     links: { external: 'https://www.youtube.com/watch?app=desktop&v=faBJWkhCoZU' },
   },
   {
-    year: '2025',
+    year: '2024',
     title: 'Stockr',
     builtWith: ['OpenAI API', 'Chart.js', 'Alpha Vantage API', 'IEX Cloud', 'Yahoo Finance API'],
-    links: { external: 'https://www.stockr.info/' },
+    links: {},
   },
   {
     year: '2024',
