@@ -106,7 +106,7 @@ export function Board({
       style={{ width: w, height: h, overflow: "hidden", position: "relative" }}
     >
       <SharpStyles />
-      <div style={{ padding: pad ? "0 80px" : 0, height: "100%" }}>{children}</div>
+      <div className="w-[1440px]" style={{ padding: pad ? "0 80px" : 0, height: "100%" }}>{children}</div>
     </div>
   );
 }

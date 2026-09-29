@@ -20,8 +20,18 @@ export const HERO = {
     "Designing and building software that solves real problems, blending engineering expertise with a sharp focus on product vision and delivery.",
   ctaPrimary: "View My Work",
   ctaSecondary: "Contact Me",
-  image: "/images/ghibli-made.png",
-  imageAlt: "James Morales Studio Ghibli Form",
+  /** Two resumes, so a recruiter picks the right one instead of emailing. */
+  resumes: [
+    { label: "PM Resume", href: "/resume.pdf" },
+    { label: "SWE Resume", href: "/resume-swe.pdf" },
+  ],
+  image: "/images/james-tempo.jpg",
+  imageAlt: "James Morales at the Tempo Labs office",
+  /** Availability line — repeated verbatim at the top of Get in Touch. */
+  status: {
+    role: "Open to Technical PM & Product Engineering roles",
+    where: "Toronto / Remote / US",
+  },
 };
 
 /** Groupings are the ones already commented in TechStack.tsx. */
@@ -352,7 +362,7 @@ export const PROJECTS = {
 
 export const CONTACT = {
   heading: "Get in Touch",
-  sub: "Let's talk!",
+  sub: "Open to Technical PM & Product Engineering roles in Toronto, remote, or the US.",
   infoTitle: "Contact Information",
   email: "jmorales.hba2025@ivey.ca",
   address: "Toronto, ON, Canada",

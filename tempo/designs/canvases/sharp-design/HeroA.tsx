@@ -40,9 +40,59 @@ export default function HeroA() {
             {HERO.pitch}
           </p>
 
-          <div style={{ display: "flex", gap: 14, marginTop: 40 }}>
+          {/* Availability. Square dot on purpose — no rounded corners anywhere. */}
+          <div style={{ marginTop: 32 }}>
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                border: `1px solid ${INK.hairStrong}`,
+                borderRadius: 2,
+                padding: "8px 14px",
+              }}
+            >
+              <span style={{ width: 6, height: 6, background: INK.accent, flexShrink: 0 }} />
+              <span
+                className="mono"
+                style={{
+                  fontSize: 10.5,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: INK.muted,
+                }}
+              >
+                {HERO.status.role}
+                <span style={{ color: INK.faint, padding: "0 6px" }}>·</span>
+                {HERO.status.where}
+              </span>
+            </span>
+          </div>
+
+          <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 28 }}>
             <Btn>{HERO.ctaPrimary}</Btn>
             <Btn variant="ghost">{HERO.ctaSecondary}</Btn>
+            <span style={{ width: 1, height: 24, background: INK.hairStrong, margin: "0 8px" }} />
+            {/* Third tier on purpose — four equal buttons would leave nothing primary. */}
+            {HERO.resumes.map((r) => (
+              <span
+                key={r.href}
+                className="mono"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  height: 46,
+                  fontSize: 11,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: INK.muted,
+                }}
+              >
+                {r.label}
+                <span style={{ color: INK.accent }}>↓</span>
+              </span>
+            ))}
           </div>
         </div>
 

@@ -66,8 +66,10 @@ const Contact = () => {
               <span className="pt-6 font-mono text-[11px] tracking-[0.1em] text-signal">06</span>
               <h2 className="d2 m-0 text-ink">Get in Touch</h2>
             </div>
-            <p className="mt-5 text-[21px] leading-[1.55] text-ink-muted sm:ml-[37px]">
-              Let&apos;s talk!
+            {/* Same line as the hero pill, set as a sentence: it's reinforced
+                exactly where someone decides whether to reach out. */}
+            <p className="mt-5 max-w-[520px] text-[21px] leading-[1.55] text-ink-muted sm:ml-[37px]">
+              Open to Technical PM &amp; Product Engineering roles in Toronto, remote, or the US.
             </p>
 
             <div className="h-12" />

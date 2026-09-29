@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Btn } from '@/components/ui/sharp';
+import { Btn, DownloadLink } from '@/components/ui/sharp';
 
 /**
  * Hero A — "Engineered".
@@ -44,16 +44,44 @@ const Hero = () => {
               expertise with a sharp focus on product vision and delivery.
             </motion.p>
 
+            {/* Availability. Square dot, not a round pulsing one: the system
+                has no rounded corners anywhere, and the accent is the only
+                saturated colour on the page so it carries on its own. */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.22 }}
+              className="mt-8"
+            >
+              <span className="inline-flex items-center gap-2.5 rounded-[2px] border border-ink-hair2 px-3.5 py-2">
+                <span className="h-[6px] w-[6px] shrink-0 bg-signal" aria-hidden />
+                <span className="font-mono text-[10.5px] uppercase leading-relaxed tracking-[0.1em] text-ink-muted">
+                  Open to Technical PM &amp; Product Engineering roles
+                  <span className="px-1.5 text-ink-faint">·</span>
+                  Toronto / Remote / US
+                </span>
+              </span>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-10 flex flex-wrap gap-3.5"
+              className="mt-7 flex flex-wrap items-center gap-x-3.5 gap-y-1"
             >
               <Btn href="#projects">View My Work</Btn>
               <Btn href="#contact" variant="ghost">
                 Contact Me
               </Btn>
+              <span className="mx-2 hidden h-6 w-px bg-ink-hair2 sm:block" aria-hidden />
+              <span className="flex items-center gap-5">
+                <DownloadLink href="/resume.pdf" filename="James_Morales_PM_Resume.pdf">
+                  PM Resume
+                </DownloadLink>
+                <DownloadLink href="/resume-swe.pdf" filename="James_Morales_SWE_Resume.pdf">
+                  SWE Resume
+                </DownloadLink>
+              </span>
             </motion.div>
           </motion.div>
 
@@ -70,8 +98,8 @@ const Hero = () => {
             </div>
             <div className="plate relative h-[420px] sm:h-[540px]">
               <Image
-                src="/images/ghibli-made.png"
-                alt="James Morales Studio Ghibli Form"
+                src="/images/james-tempo.jpg"
+                alt="James Morales at the Tempo Labs office"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 396px"

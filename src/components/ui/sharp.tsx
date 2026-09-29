@@ -95,6 +95,35 @@ export function Btn({
   );
 }
 
+/**
+ * Resume download. Deliberately a third tier below Btn: no border box, so it
+ * sits beside the two CTAs without competing with them — four equal buttons
+ * would flatten the hierarchy and leave nothing obviously primary. Matches the
+ * Btn row height so it shares their baseline.
+ *
+ * `download` names the saved file, which is why the hrefs can stay short.
+ */
+export function DownloadLink({
+  href,
+  filename,
+  children,
+}: {
+  href: string;
+  filename: string;
+  children: ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      download={filename}
+      className="group inline-flex h-[46px] items-center gap-2 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted transition-colors hover:text-ink"
+    >
+      {children}
+      <span className="text-signal transition-transform group-hover:translate-y-0.5">↓</span>
+    </a>
+  );
+}
+
 /** Mono link with a trailing rule — replaces the old underlined CTA links. */
 export function ArrowLink({
   href,
