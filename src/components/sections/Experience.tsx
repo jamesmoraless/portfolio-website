@@ -1,6 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import {
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+} from 'framer-motion';
 import Image from 'next/image';
 import { ArrowLink, SectionHead, Tag, enterAt } from '@/components/ui/sharp';
 
@@ -164,6 +171,46 @@ const experiences: ExperienceItem[] = [
  * Repwave genuinely has no logo and no screenshot — that stays honest here.
  */
 const Experience = () => {
+  const railRef = useRef<HTMLDivElement>(null);
+  const dotRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  /** Each node's position down the rail, 0–1. A ref, not state: the scroll
+   *  handler reads it every frame and must never see a stale closure. */
+  const marksRef = useRef<number[]>([]);
+  const [reached, setReached] = useState(0);
+  const reduced = useReducedMotion();
+
+  // The focus line sits at 60% viewport height — progress is 0 when the rail's
+  // top crosses it and 1 when its bottom does, so the fill tracks where the
+  // reader is actually looking rather than where the section merely starts.
+  const { scrollYProgress } = useScroll({
+    target: railRef,
+    offset: ['start 0.6', 'end 0.6'],
+  });
+  const fill = useSpring(scrollYProgress, { stiffness: 90, damping: 28, mass: 0.35 });
+
+  useEffect(() => {
+    const measure = () => {
+      const rail = railRef.current;
+      if (!rail) return;
+      const railTop = rail.getBoundingClientRect().top;
+      const height = rail.offsetHeight || 1;
+      marksRef.current = dotRefs.current.map((dot) =>
+        dot ? (dot.getBoundingClientRect().top - railTop) / height : 0,
+      );
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
+
+  useMotionValueEvent(fill, 'change', (value) => {
+    let next = 0;
+    marksRef.current.forEach((mark, i) => {
+      if (value >= mark) next = i;
+    });
+    setReached((prev) => (prev === next ? prev : next));
+  });
+
   return (
     <section id="experience" className="bg-ink-bg py-20 lg:py-24">
       <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-20">
@@ -174,8 +221,19 @@ const Experience = () => {
           right={<ArrowLink href="/resume.pdf" external>View Full Resume</ArrowLink>}
         />
 
-        <div className="relative">
+        <div ref={railRef} className="relative">
           <div className="absolute bottom-0 left-[3px] top-0 hidden w-px bg-ink-hair lg:block" />
+          {/* The accent travelling down the same hairline. Scaled rather than
+              re-laid-out, so it animates on the compositor. Omitted entirely
+              under reduced motion — a permanently full orange rail would read
+              as a design decision rather than a disabled animation. */}
+          {!reduced && (
+            <motion.div
+              aria-hidden
+              style={{ scaleY: fill }}
+              className="absolute bottom-0 left-[3px] top-0 hidden w-px origin-top bg-signal lg:block"
+            />
+          )}
 
           {experiences.map((job, i) => (
             <motion.div
@@ -186,8 +244,11 @@ const Experience = () => {
               {/* Rail */}
               <div className="relative hidden w-[82px] shrink-0 pr-5 lg:block">
                 <span
-                  className={`absolute left-0 top-1.5 h-[7px] w-[7px] ${
-                    i === 0 ? 'bg-signal' : 'bg-ink-hair2'
+                  ref={(el) => {
+                    dotRefs.current[i] = el;
+                  }}
+                  className={`absolute left-0 top-1.5 h-[7px] w-[7px] transition-colors duration-300 ${
+                    (reduced ? i === 0 : i <= reached) ? 'bg-signal' : 'bg-ink-hair2'
                   }`}
                 />
                 <span className="ml-5 font-mono text-[11px] text-ink-faint">
