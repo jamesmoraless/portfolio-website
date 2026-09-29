@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { ArrowLink, SectionHead, Tag, enterAt } from '@/components/ui/sharp';
 
 interface ProjectItem {
   title: string;
@@ -12,184 +13,194 @@ interface ProjectItem {
     github?: string;
     info?: string;
   };
-  image: string;
-  link?: string;
 }
 
 const projects: ProjectItem[] = [
   {
-    title: "Atlas Code - Automated Technical Debt Resolution GitHub App",
-    period: "January 2026",
+    title: 'Atlas Code - Automated Technical Debt Resolution GitHub App',
+    period: 'January 2026',
     description: [
-      "Built an AI-powered GitHub App that continuously monitors codebases, detects technical debt, and automatically opens targeted pull requests with precise fixes for security vulnerabilities, duplicated logic, and maintainability issues",
-      "Engineered specialized sub-agents (security, reliability, DRY, maintainability) that analyze code changes on every push to main, generating context-aware fixes with clear explanations",
-      "Implemented a centralized debt tracking database using Supabase to prevent duplicate findings and automatically resolve issues upon PR merge"
+      'Built an AI-powered GitHub App that continuously monitors codebases, detects technical debt, and automatically opens targeted pull requests with precise fixes for security vulnerabilities, duplicated logic, and maintainability issues',
+      'Engineered specialized sub-agents (security, reliability, DRY, maintainability) that analyze code changes on every push to main, generating context-aware fixes with clear explanations',
+      'Implemented a centralized debt tracking database using Supabase to prevent duplicate findings and automatically resolve issues upon PR merge',
     ],
-    technologies: ["GitHub Apps", "Github Actions", "Supabase", "TypeScript", "AI Agents", "PostgreSQL", "Vercel"],
+    technologies: [
+      'GitHub Apps',
+      'Github Actions',
+      'Supabase',
+      'TypeScript',
+      'AI Agents',
+      'PostgreSQL',
+      'Vercel',
+    ],
     links: {
-      demo: "https://www.youtube.com/watch?v=MhSbGI2JdPM",
-      info: "https://8090-hackathon.vercel.app"
+      demo: 'https://www.youtube.com/watch?v=MhSbGI2JdPM',
+      info: 'https://8090-hackathon.vercel.app',
     },
-    image: "/images/debtfixer.png"
   },
   {
-    title: "Capstone: London Transit Delays - 1st Place Winner",
-    period: "Fall 2024 - Spring 2025",
+    title: 'Capstone: London Transit Delays - 1st Place Winner',
+    period: 'Fall 2024 - Spring 2025',
     description: [
-      "Implemented a real-time data pipeline using Node.js, Express, and MongoDB, processing weather and traffic data dynamically",
-      "Configured a Grafana dashboard to visualize the data, and a cron job to run the pipeline as a scheduled task",
-      "Utilized Python, Pandas, Scikit-learn, and TensorFlow to build a predictive analytics pipeline, leveraging historical and real-time datasets for model training"
+      'Implemented a real-time data pipeline using Node.js, Express, and MongoDB, processing weather and traffic data dynamically',
+      'Configured a Grafana dashboard to visualize the data, and a cron job to run the pipeline as a scheduled task',
+      'Utilized Python, Pandas, Scikit-learn, and TensorFlow to build a predictive analytics pipeline, leveraging historical and real-time datasets for model training',
     ],
-    technologies: ["Node.js", "Express", "MongoDB", "Python", "Grafana ", "Docker", "Cron", "GCP", "Open Source APIs"],
-    links: {
-      demo: "https://www.youtube.com/watch?app=desktop&v=faBJWkhCoZU"
-    },
-    image: "/images/london-transit-delays.jpg"
+    technologies: [
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'Python',
+      'Grafana ',
+      'Docker',
+      'Cron',
+      'GCP',
+      'Open Source APIs',
+    ],
+    links: { demo: 'https://www.youtube.com/watch?app=desktop&v=faBJWkhCoZU' },
   },
   {
-    title: "Stockr",
-    period: "Fall 2024 - Present",
+    title: 'Stockr',
+    period: 'Fall 2024 - Present',
     description: [
-      "Engineered an AI agent using the OpenAI API that analyzes personal portfolios and delivers personalized financial advice, leveraging insights from corporate financial reporting, finance and accounting coursework",
-      "Developed a real-time finance dashboard integrating market data, portfolio tracking, and interactive visualizations utilizing open source libraries such as Chart.js and APIs such as Alpha Vantage, IEX Cloud, Yahoo Finance, and OpenAI"
+      'Engineered an AI agent using the OpenAI API that analyzes personal portfolios and delivers personalized financial advice, leveraging insights from corporate financial reporting, finance and accounting coursework',
+      'Developed a real-time finance dashboard integrating market data, portfolio tracking, and interactive visualizations utilizing open source libraries such as Chart.js and APIs such as Alpha Vantage, IEX Cloud, Yahoo Finance, and OpenAI',
     ],
-    technologies: ["OpenAI API", "Docker", "Chart.js", "Alpha Vantage API", "IEX Cloud", "Yahoo Finance API", "React", "Typescript", "Next.js", "MongoDB", "Node.js", "Express", "Vercel"],
-    links: {
-      info: "https://www.stockr.info/"
-    },
-    image: "/images/stockr.jpg"
+    technologies: [
+      'OpenAI API',
+      'Docker',
+      'Chart.js',
+      'Alpha Vantage API',
+      'IEX Cloud',
+      'Yahoo Finance API',
+      'React',
+      'Typescript',
+      'Next.js',
+      'MongoDB',
+      'Node.js',
+      'Express',
+      'Vercel',
+    ],
+    links: { info: 'https://www.stockr.info/' },
   },
   {
-    title: "Cheer Web App",
-    period: "Winter 2024",
+    title: 'Cheer Web App',
+    period: 'Winter 2024',
     description: [
-      "Deployed on GCP a comprehensive web app using the MERN stack, implementing a role-based access control system, real-time communication with Socket.io, staff scheduling, payroll system and Eleven Labs for text-to-speech functionality ensuring accessibility",
-      "Collaborated with Family Connections Center over 8 months, utilizing scrum and Jim throughout the SDLC, adopting agile principles"
+      'Deployed on GCP a comprehensive web app using the MERN stack, implementing a role-based access control system, real-time communication with Socket.io, staff scheduling, payroll system and Eleven Labs for text-to-speech functionality ensuring accessibility',
+      'Collaborated with Family Connections Center over 8 months, utilizing scrum and Jim throughout the SDLC, adopting agile principles',
     ],
-    technologies: ["MongoDB", "Express", "React", "Typescript", "Next.js", "GCP", "Socket.io", "Eleven Labs", "Docker"],
-    links: {
-      demo: "https://www.youtube.com/watch?v=vwu5KqiraI4"
-    },
-    image: "/images/cheer-web-app.jpg"
+    technologies: [
+      'MongoDB',
+      'Express',
+      'React',
+      'Typescript',
+      'Next.js',
+      'GCP',
+      'Socket.io',
+      'Eleven Labs',
+      'Docker',
+    ],
+    links: { demo: 'https://www.youtube.com/watch?v=vwu5KqiraI4' },
   },
 ];
 
+/**
+ * Featured Projects — a 2×2 grid where the grid LINES are the container.
+ * No card fill, no shadow, no radius.
+ *
+ * Note: the old version rendered `description` (a string[]) straight into a
+ * <p>, so every bullet ran together as one sentence. They are set as the
+ * separate lines they already were in the data.
+ */
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-indigo-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-          <p className="text-lg text-gray-700">Some of my recent work</p>
-        </motion.div>
+    <section id="projects" className="bg-ink-bg py-20 lg:py-24">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-20">
+        <SectionHead
+          index="05"
+          title="Featured Projects"
+          sub="Some of my recent work"
+          right={<ArrowLink href="/archive">View Full Project Archive</ArrowLink>}
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+        <div className="grid grid-cols-1 border-l border-t border-ink-hair2 md:grid-cols-2">
+          {projects.map((p, i) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-indigo-200 rounded-xl shadow-sm overflow-hidden"
+              key={p.title}
+              {...enterAt(i)}
+              className="group relative border-b border-r border-ink-hair px-6 py-6 transition-colors hover:bg-ink-surface"
             >
-              <div className="p-4">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg font-bold text-gray-900">{project.title}</h3>
-                  <p className="text-sm font-medium text-gray-600">{project.period}</p>
-                </div>
-                <p className="text-sm text-gray-700 mb-3 line-clamp-3">{project.description}</p>
-                <div className="flex flex-wrap gap-1.5 mb-3">
-                  {project.technologies.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-2 py-0.5 bg-white text-gray-700 text-xs rounded-full border border-indigo-100 hover:bg-indigo-100 hover:border-indigo-200 hover:text-indigo-700 transition-all duration-200"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex items-center space-x-3">
-                  {project.links?.demo && (
-                    <a
-                      href={project.links.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-700 hover:text-indigo-600 transition-colors flex items-center space-x-1"
-                    >
-                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 4-8 4z" />
-                      </svg>
-                      <span className="text-xs font-medium">Watch Demo</span>
-                    </a>
-                  )}
-                  {project.links?.github && (
-                    <a
-                      href={project.links.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-700 hover:text-indigo-600 transition-colors flex items-center space-x-1"
-                    >
-                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                          fillRule="evenodd"
-                          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <span className="text-xs font-medium">GitHub</span>
-                    </a>
-                  )}
-                  {project.links?.info && (
-                    <a
-                      href={project.links.info}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-700 hover:text-indigo-600 transition-colors flex items-center space-x-1"
-                    >
-                      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                      </svg>
-                      <span className="text-xs font-medium">Live Site</span>
-                    </a>
-                  )}
-                </div>
+              <span className="absolute inset-y-0 left-0 w-0.5 bg-transparent transition-colors group-hover:bg-signal" />
+
+              <div className="flex items-baseline justify-between gap-4">
+                <span className="font-mono text-[11px] text-ink-faint transition-colors group-hover:text-signal">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="lbl text-right">{p.period}</span>
+              </div>
+
+              <h3 className="mt-4 max-w-[520px] text-[21px] font-medium leading-tight tracking-[-0.016em] text-ink">
+                {p.title}
+              </h3>
+
+              <div className="mt-4">
+                {p.description.map((d, di) => (
+                  <div key={di} className="flex gap-3 border-t border-ink-hair py-2">
+                    <span className="mt-2 h-1 w-1 shrink-0 bg-ink-hair2" />
+                    <span className="text-[12.5px] leading-relaxed text-ink-muted">{d}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {p.technologies.map((t) => (
+                  <Tag key={t}>{t.trim()}</Tag>
+                ))}
+              </div>
+
+              <div className="mt-[18px] flex flex-wrap gap-5">
+                {p.links?.demo && (
+                  <a
+                    href={p.links.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.12em] text-ink transition-colors hover:text-signal"
+                  >
+                    Watch Demo <span className="text-signal">↗</span>
+                  </a>
+                )}
+                {p.links?.github && (
+                  <a
+                    href={p.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.12em] text-ink transition-colors hover:text-signal"
+                  >
+                    GitHub <span className="text-signal">↗</span>
+                  </a>
+                )}
+                {p.links?.info && (
+                  <a
+                    href={p.links.info}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-mono text-[10.5px] uppercase tracking-[0.12em] text-ink transition-colors hover:text-signal"
+                  >
+                    Live Site <span className="text-signal">↗</span>
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mt-12"
-        >
-          <a
-            href="/archive"
-            className="inline-flex items-center text-gray-900 hover:text-indigo-600 transition-colors duration-200 group"
-          >
-            <span className="text-lg font-medium">View Full Project Archive</span>
-            <svg
-              className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </motion.div>
+        <div className="mt-8 md:hidden">
+          <ArrowLink href="/archive">View Full Project Archive</ArrowLink>
+        </div>
       </div>
     </section>
   );
 };
 
-export default Projects; 
+export default Projects;

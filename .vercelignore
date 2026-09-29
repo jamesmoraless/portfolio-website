@@ -1,0 +1,11 @@
+# The tempo/ folder is Tempo's local canvas dev host, not part of the deployed
+# site. The design canvases under tempo/designs are committed on purpose so the
+# work is versioned, but nothing in here should reach a production build:
+#
+#   - tempo/app/tempo-host/page.tsx imports tempo/.tempo/tempo-host, which is
+#     generated locally and gitignored, so it is missing on Vercel.
+#   - tempo/public is a symlink to ../public, which build-time file tracing
+#     should not have to follow.
+#
+# tsconfig.json also excludes "tempo" so local `next build` stays clean.
+tempo

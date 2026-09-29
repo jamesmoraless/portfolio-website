@@ -1,205 +1,83 @@
 'use client';
-import { useRef, useEffect, useState } from 'react';
-import { motion, useAnimation, useInView } from 'framer-motion';
-import { type SimpleIcon } from 'simple-icons';
 
-// Import specific icons we need
-import {
-  siHtml5,
-  siCss3,
-  siJavascript,
-  siTypescript,
-  siPython,
-  siReact,
-  siNodedotjs,
-  siExpress,
-  siFlask,
-  siNextdotjs,
-  siPostgresql,
-  siMongodb,
-  siMysql,
-  siAmazonwebservices,
-  siGooglecloud,
-  siDocker,
-  siKubernetes,
-  siTerraform,
-  siGit,
-  siGithub,
-  siJenkins,
-  siApacheairflow,
-  siSplunk,
-  siPostman,
-  siFigma,
-  siTailwindcss,
-} from 'simple-icons';
+import { motion } from 'framer-motion';
+import { SectionHead, enterAt } from '@/components/ui/sharp';
 
-interface TechItem {
-  name: string;
-  icon: SimpleIcon;
-  category: 'language' | 'database' | 'cloud' | 'tool';
-}
-
-const techStack: TechItem[] = [
-  // Languages & Frameworks
-  { name: 'HTML5', icon: siHtml5, category: 'language' },
-  { name: 'CSS3', icon: siCss3, category: 'language' },
-  { name: 'JavaScript', icon: siJavascript, category: 'language' },
-  { name: 'TypeScript', icon: siTypescript, category: 'language' },
-  { name: 'Python', icon: siPython, category: 'language' },
-  { name: 'React', icon: siReact, category: 'language' },
-  { name: 'Node.js', icon: siNodedotjs, category: 'language' },
-  { name: 'Express', icon: siExpress, category: 'language' },
-  { name: 'Flask', icon: siFlask, category: 'language' },
-  { name: 'Next.js', icon: siNextdotjs, category: 'language' },
-
-  // Databases & Cloud
-  { name: 'PostgreSQL', icon: siPostgresql, category: 'database' },
-  { name: 'MongoDB', icon: siMongodb, category: 'database' },
-  { name: 'MySQL', icon: siMysql, category: 'database' },
-  { name: 'AWS', icon: siAmazonwebservices, category: 'cloud' },
-  { name: 'GCP', icon: siGooglecloud, category: 'cloud' },
-  { name: 'Docker', icon: siDocker, category: 'cloud' },
-  { name: 'Kubernetes', icon: siKubernetes, category: 'cloud' },
-  { name: 'Terraform', icon: siTerraform, category: 'cloud' },
-
-  // Tools & DevOps
-  { name: 'Git', icon: siGit, category: 'tool' },
-  { name: 'GitHub', icon: siGithub, category: 'tool' },
-  { name: 'Jenkins', icon: siJenkins, category: 'tool' },
-  { name: 'Apache Airflow', icon: siApacheairflow, category: 'tool' },
-  { name: 'Splunk', icon: siSplunk, category: 'tool' },
-  { name: 'Postman', icon: siPostman, category: 'tool' },
-  { name: 'Figma', icon: siFigma, category: 'tool' },
-  { name: 'Tailwind CSS', icon: siTailwindcss, category: 'tool' },
+/**
+ * The biggest single fix on the site.
+ *
+ * Before: 26 full-colour brand logos on an infinite auto-scrolling marquee —
+ * motion and rainbow where the reader wants something scannable.
+ * Now: the same 26 items, same groupings, as four typographic columns on
+ * hairlines. Nothing moves; hovering a row is the only reward.
+ */
+const groups: { label: string; items: string[] }[] = [
+  {
+    label: 'Languages & Frameworks',
+    items: [
+      'HTML5',
+      'CSS3',
+      'JavaScript',
+      'TypeScript',
+      'Python',
+      'React',
+      'Node.js',
+      'Express',
+      'Flask',
+      'Next.js',
+    ],
+  },
+  { label: 'Databases', items: ['PostgreSQL', 'MongoDB', 'MySQL'] },
+  { label: 'Cloud', items: ['AWS', 'GCP', 'Docker', 'Kubernetes', 'Terraform'] },
+  {
+    label: 'Tools & DevOps',
+    items: [
+      'Git',
+      'GitHub',
+      'Jenkins',
+      'Apache Airflow',
+      'Splunk',
+      'Postman',
+      'Figma',
+      'Tailwind CSS',
+    ],
+  },
 ];
 
 const TechStack = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const controls = useAnimation();
-  const isInView = useInView(scrollRef);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-
-  useEffect(() => {
-    if (isInView && !isHovered && !isDragging) {
-      controls.start({
-        x: [0, -1920],
-        transition: {
-          x: {
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 30,
-            ease: "linear",
-          },
-        },
-      });
-    } else {
-      controls.stop();
-    }
-  }, [isInView, controls, isHovered, isDragging]);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    setStartX(e.pageX - (containerRef.current?.offsetLeft || 0));
-    setScrollLeft(containerRef.current?.scrollLeft || 0);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - (containerRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 2;
-    if (containerRef.current) {
-      containerRef.current.scrollLeft = scrollLeft - walk;
-    }
-  };
-
-  const handleWheel = (e: React.WheelEvent) => {
-    e.preventDefault();
-    if (containerRef.current) {
-      containerRef.current.scrollLeft += e.deltaY * 0.3;
-    }
-  };
-
-  const renderIcon = (icon: SimpleIcon) => {
-    return (
-      <svg
-        role="img"
-        viewBox="0 0 24 24"
-        className="w-8 h-8"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d={icon.path} />
-      </svg>
-    );
-  };
-
-  // Create three sets of tech stack for smooth infinite scrolling
-  const tripleStack = [...techStack, ...techStack, ...techStack];
-
   return (
-    <>
-      <section id="tech-stack" className="py-16 bg-indigo-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
-            Tech Stack
-          </h2>
-          <div 
-            ref={containerRef}
-            className="relative w-full overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing no-scrollbar"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => {
-              setIsHovered(false);
-              setIsDragging(false);
-            }}
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-            onWheel={handleWheel}
-          >
-            <motion.div
-              ref={scrollRef}
-              className="flex gap-12 items-center px-6"
-              animate={controls}
-              style={{ width: "fit-content" }}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.1}
-            >
-              {tripleStack.map((tech, index) => (
+    <section id="tech-stack" className="bg-ink-bg py-20 lg:py-24">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-20">
+        <SectionHead index="01" title="Tech Stack" />
+
+        <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {groups.map((group, gi) => (
+            <motion.div key={group.label} {...enterAt(gi)}>
+              <div className="flex items-baseline justify-between pb-3">
+                <span className="lbl text-ink-muted">{group.label}</span>
+                <span className="font-mono text-[10px] text-ink-faint">
+                  {String(group.items.length).padStart(2, '0')}
+                </span>
+              </div>
+              <div className="h-px bg-ink-hair2" />
+
+              {group.items.map((item) => (
                 <div
-                  key={`${tech.name}-${index}`}
-                  className="flex flex-col items-center gap-2 min-w-[100px]"
+                  key={item}
+                  className="group flex items-center gap-2.5 border-b border-ink-hair border-l-2 border-l-transparent py-2.5 pr-2.5 transition-colors hover:border-l-signal hover:bg-ink-surface hover:pl-2.5"
                 >
-                  <div 
-                    className="w-12 h-12 relative flex items-center justify-center"
-                    style={{ color: `#${tech.icon.hex}` }}
-                  >
-                    {renderIcon(tech.icon)}
-                  </div>
-                  <span className="text-sm text-gray-800 text-center whitespace-nowrap">
-                    {tech.name}
+                  <span className="h-[5px] w-[5px] shrink-0 bg-ink-hair2 transition-colors group-hover:bg-signal" />
+                  <span className="font-mono text-[12.5px] text-ink-muted transition-colors group-hover:text-ink">
+                    {item}
                   </span>
                 </div>
               ))}
             </motion.div>
-          </div>
+          ))}
         </div>
-      </section>
-      <style jsx global>{`  
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      `}</style>
-    </>
+      </div>
+    </section>
   );
 };
 
-export default TechStack; 
+export default TechStack;

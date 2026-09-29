@@ -1,74 +1,102 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { Btn } from '@/components/ui/sharp';
 
+/**
+ * Hero A — "Engineered".
+ * Left-weighted and asymmetric on a 12-column hairline grid you can actually
+ * see. The name is a two-line stack so it holds the page the way the old
+ * centred version never did. Accent appears three times total.
+ */
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-indigo-100 pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center">
-        {/* Left: Text Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="md:w-1/2 space-y-6 text-center md:text-left"
-        >
-          <h1 className="text-5xl md:text-7xl font-extrabold text-indigo-900 mb-4 tracking-tight leading-tight">
-            James Morales
-          </h1>
-          <h2 className="text-lg md:text-xl text-indigo-700 mb-4 font-medium">
-            Technical Product Manager and Full Stack Engineer
-          </h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-base md:text-lg text-gray-700 max-w-xl mb-6 leading-relaxed"
-          >
-            Designing and building software that solves real problems, blending engineering expertise with a sharp focus on product vision and delivery.
-          </motion.p>
+    <section className="relative flex min-h-screen items-center bg-ink-bg pt-16">
+      <div className="grid12" aria-hidden />
+
+      <div className="relative mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-20">
+        <div className="flex flex-col items-start gap-12 py-16 lg:flex-row lg:items-start lg:gap-16 lg:py-24">
+          {/* Left — the statement */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+            transition={{ duration: 0.5 }}
+            className="flex-1"
           >
-            <a
-              href="#projects"
-              className="bg-indigo-800 text-white font-medium px-6 py-3 md:px-8 md:py-4 rounded-lg hover:bg-indigo-700 transition transform hover:scale-105"
+            <span className="lbl">Technical Product Manager and Full Stack Engineer</span>
+
+            <h1 className="d1 mt-6 text-ink">
+              James
+              <br />
+              Morales
+            </h1>
+
+            <div className="my-8 h-px w-full max-w-[560px] bg-ink-hair2" />
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="max-w-[468px] text-[15.5px] leading-[1.72] text-ink-muted"
             >
-              View My Work
-            </a>
-            <a
-              href="#contact"
-              className="bg-white text-indigo-800 font-medium px-6 py-3 md:px-8 md:py-4 rounded-lg border border-indigo-100 hover:border-indigo-200 transition transform hover:scale-105"
+              Designing and building software that solves real problems, blending engineering
+              expertise with a sharp focus on product vision and delivery.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mt-10 flex flex-wrap gap-3.5"
             >
-              Contact Me
-            </a>
+              <Btn href="#projects">View My Work</Btn>
+              <Btn href="#contact" variant="ghost">
+                Contact Me
+              </Btn>
+            </motion.div>
           </motion.div>
-        </motion.div>
-        {/* Right: Animated Image */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-8 md:mt-0 md:w-1/2 flex justify-center"
-        >
-          <img
-            src="/images/ghibli-made.png"
-            alt="James Morales Studio Ghibli Form"
-            className="w-72 h-92 md:w-106 md:h-136 object-cover object-center rounded-xl shadow-lg"
-          />
-        </motion.div>
+
+          {/* Right — the plate */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="w-full max-w-[396px] shrink-0"
+          >
+            <div className="mb-3 flex items-baseline justify-between">
+              <span className="lbl">Fig. 01</span>
+              <span className="font-mono text-[10px] tracking-[0.16em] text-signal">●</span>
+            </div>
+            <div className="plate relative h-[420px] sm:h-[540px]">
+              <Image
+                src="/images/ghibli-made.png"
+                alt="James Morales Studio Ghibli Form"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 396px"
+                priority
+              />
+            </div>
+          </motion.div>
+        </div>
       </div>
-      {/* Absolute Scroll Arrow at bottom */}
-      <a href="#tech-stack" aria-label="Scroll to Tech Stack" className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <svg className="w-8 h-8 text-indigo-700 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </a>
+
+      {/* Foot — scroll cue sits on the baseline rule, not floating mid-air */}
+      <div className="absolute inset-x-0 bottom-10 hidden px-6 sm:px-10 lg:block lg:px-20">
+        <div className="mx-auto max-w-[1440px]">
+          <div className="mb-4 h-px w-full bg-ink-hair" />
+          <div className="flex items-center justify-between">
+            <a href="#tech-stack" className="group flex items-center gap-3">
+              <span className="h-px w-7 bg-signal" />
+              <span className="lbl transition-colors group-hover:text-ink">Tech Stack</span>
+            </a>
+            <span className="font-mono text-[11px] tracking-[0.14em] text-ink-faint">↓</span>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
 
-export default Hero; 
+export default Hero;

@@ -5,6 +5,8 @@ const nextConfig = {
   images: {
     domains: [],
     unoptimized: true,
+    // About's gallery requests quality 85; Next 16 warns unless it is declared.
+    qualities: [75, 85],
   },
 }
 

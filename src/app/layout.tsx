@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
+import MotionProvider from "@/components/layout/MotionProvider";
 import { SpeedInsights } from '@vercel/speed-insights/next';
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "James Morales | Portfolio",
-  description: "Full Stack Developer specializing in modern web applications",
+  description: "Technical Product Manager and Full Stack Engineer",
   icons: {
     icon: "/favicon.ico",
   },
@@ -20,12 +20,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
-        <Navbar />
-        <main className="min-h-screen">
-          {children}
-        </main>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth`}
+    >
+      <body className="bg-ink-bg text-ink font-sans antialiased">
+        <MotionProvider>
+          <Navbar />
+          <main className="min-h-screen">
+            {children}
+          </main>
+        </MotionProvider>
         <SpeedInsights />
       </body>
     </html>
