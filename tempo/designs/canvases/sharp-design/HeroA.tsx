@@ -123,7 +123,7 @@ export default function HeroA() {
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
               <span style={{ width: 28, height: 1, background: INK.accent }} />
               <span className="lbl" style={{ color: INK.muted }}>
-                Tech Stack
+                About
               </span>
             </div>
             <span className="mono" style={{ fontSize: 11, color: INK.faint, letterSpacing: ".14em" }}>

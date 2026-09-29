@@ -41,17 +41,18 @@ export default function SharpDesignCanvas() {
         layout={{ x: 1560, y: 1490, width: 1440, height: 900, intrinsicSizing: "root-element" }}
       />
 
-      <Storyboard
-        id="TechStack"
-        name="01 · Tech Stack"
-        component={TechStack}
-        layout={{ x: 0, y: 2550, width: 1440, height: 470, intrinsicSizing: "root-element" }}
-      />
+      {/* About leads: visitors should meet the person before the toolchain. */}
       <Storyboard
         id="About"
-        name="02 · About Me"
+        name="01 · About Me"
         component={About}
-        layout={{ x: 1560, y: 2550, width: 1440, height: 940, intrinsicSizing: "root-element" }}
+        layout={{ x: 0, y: 2550, width: 1440, height: 940, intrinsicSizing: "root-element" }}
+      />
+      <Storyboard
+        id="TechStack"
+        name="02 · Tech Stack"
+        component={TechStack}
+        layout={{ x: 1560, y: 2550, width: 1440, height: 470, intrinsicSizing: "root-element" }}
       />
 
       {/* Experience leads, Education follows: the work is the stronger story,

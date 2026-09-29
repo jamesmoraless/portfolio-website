@@ -43,7 +43,7 @@ const About = () => {
   return (
     <section id="about" className="bg-ink-bg py-20 lg:py-24">
       <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-20">
-        <SectionHead index="02" title="About Me" />
+        <SectionHead index="01" title="About Me" />
 
         <div className="flex flex-col gap-16 lg:flex-row">
           {/* Writing */}

@@ -96,7 +96,7 @@
 }
 /* Product screenshots are far more saturated than the photography. */
 .plate-dim img {
-  filter: grayscale(0.82) contrast(1.12) brightness(0.74) saturate(0.7);
+  filter: grayscale(0.65) contrast(1.1) brightness(0.88) saturate(0.8);
 }
 /* Already-dark captures keep their own value and just lose saturation. */
 .plate-deep img {

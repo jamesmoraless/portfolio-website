@@ -53,7 +53,7 @@ export default function HeroB() {
 
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 64 }}>
             <span style={{ width: 28, height: 1, background: INK.hairStrong }} />
-            <span className="lbl">Scroll — Tech Stack</span>
+            <span className="lbl">Scroll — About</span>
           </div>
         </div>
 

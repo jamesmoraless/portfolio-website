@@ -152,19 +152,9 @@ export default function Experience() {
                 >
                   <img className="w-[279px] h-[417px]" src={job.screenshot} alt={`${job.company} website screenshot`} />
                 </div>
-              ) : (
-                <div
-                  style={{
-                    height: 166,
-                    border: `1px dashed ${INK.hair}`,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <span className="lbl">No plate</span>
-                </div>
-              )}
+              ) : null /* Repwave has no screenshot. Leave the column empty
+                          rather than drawing a placeholder — a dashed "No
+                          plate" box reads as an unfinished design. */}
             </div>
           </div>
         ))}

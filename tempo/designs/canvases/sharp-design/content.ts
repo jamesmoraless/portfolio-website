@@ -102,7 +102,7 @@ export const EDUCATION = {
     },
     {
       school: "Western University",
-      degree: "Bachelors of Science, Software Engineering",
+      degree: "Bachelor of Science, Software Engineering",
       period: "2020 - 2025",
       location: "London, ON",
       gpa: "GPA: 3.9 (89% avg)",
@@ -220,7 +220,7 @@ export const EXPERIENCE = {
       ],
       technologies: [
         "React",
-        "Typsescript",
+        "TypeScript",
         "Python",
         "Airflow",
         "Splunk",
@@ -244,7 +244,7 @@ export const EXPERIENCE = {
       period: "November 2023 - March 2024",
       description: [
         "Worked alongside a Salesforce Senior SWE on full-stack development, integrating a Flask/Python backend and leading the React front-end development. Optimized API for processing monthly conversational data",
-        "Contextualized OpenAI API to generate sales scripts for sales reps to use in their conversations with customers, ",
+        "Contextualized OpenAI API to generate sales scripts for sales reps to use in their conversations with customers",
         "Collaboratively designed UI elements and workflows in Figma for a B2B SaaS product, focusing on user experience and functionality",
       ],
       technologies: ["React", "Typescript", "Docker", "Flask", "Python", "OpenAI API", "Figma"],
@@ -342,7 +342,7 @@ export const PROJECTS = {
       period: "Winter 2024",
       description: [
         "Deployed on GCP a comprehensive web app using the MERN stack, implementing a role-based access control system, real-time communication with Socket.io, staff scheduling, payroll system and Eleven Labs for text-to-speech functionality ensuring accessibility",
-        "Collaborated with Family Connections Center over 8 months, utilizing scrum and Jim throughout the SDLC, adopting agile principles",
+        "Collaborated with Family Connections Center over 8 months, utilizing scrum and Jira throughout the SDLC, adopting agile principles",
       ],
       technologies: [
         "MongoDB",

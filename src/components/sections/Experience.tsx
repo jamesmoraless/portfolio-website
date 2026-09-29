@@ -113,7 +113,7 @@ const experiences: ExperienceItem[] = [
     ],
     technologies: [
       'React',
-      'Typsescript',
+      'TypeScript',
       'Python',
       'Airflow',
       'Splunk',
@@ -138,7 +138,7 @@ const experiences: ExperienceItem[] = [
     period: 'November 2023 - March 2024',
     description: [
       'Worked alongside a Salesforce Senior SWE on full-stack development, integrating a Flask/Python backend and leading the React front-end development. Optimized API for processing monthly conversational data',
-      'Contextualized OpenAI API to generate sales scripts for sales reps to use in their conversations with customers, ',
+      'Contextualized OpenAI API to generate sales scripts for sales reps to use in their conversations with customers',
       'Collaboratively designed UI elements and workflows in Figma for a B2B SaaS product, focusing on user experience and functionality',
     ],
     technologies: ['React', 'Typescript', 'Docker', 'Flask', 'Python', 'OpenAI API', 'Figma'],
@@ -340,11 +340,9 @@ const Experience = () => {
                       sizes="(max-width: 1024px) 100vw, 264px"
                     />
                   </a>
-                ) : (
-                  <div className="flex h-[166px] items-center justify-center border border-dashed border-ink-hair">
-                    <span className="lbl">No plate</span>
-                  </div>
-                )}
+                ) : null /* Repwave has no screenshot. Leave the column empty
+                            rather than drawing a placeholder — a dashed "No
+                            plate" box reads as an unfinished design. */}
               </div>
             </motion.div>
           ))}

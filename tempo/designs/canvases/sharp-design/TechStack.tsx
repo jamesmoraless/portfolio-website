@@ -20,7 +20,7 @@ export default function TechStack() {
   return (
     <Board h={470}>
       <div style={{ height: 40 }} />
-      <SectionHead index="01" title="Tech Stack" />
+      <SectionHead index="02" title="Tech Stack" />
 
       <div style={{ display: "flex", gap: 40 }}>
         {TECH_GROUPS.map((group, gi) => (

@@ -88,7 +88,7 @@ const projects: ProjectItem[] = [
     period: 'Winter 2024',
     description: [
       'Deployed on GCP a comprehensive web app using the MERN stack, implementing a role-based access control system, real-time communication with Socket.io, staff scheduling, payroll system and Eleven Labs for text-to-speech functionality ensuring accessibility',
-      'Collaborated with Family Connections Center over 8 months, utilizing scrum and Jim throughout the SDLC, adopting agile principles',
+      'Collaborated with Family Connections Center over 8 months, utilizing scrum and Jira throughout the SDLC, adopting agile principles',
     ],
     technologies: [
       'MongoDB',

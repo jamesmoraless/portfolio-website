@@ -25,7 +25,7 @@ const TechStack = () => {
   return (
     <section id="tech-stack" className="bg-ink-bg py-20 lg:py-24">
       <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-20">
-        <SectionHead index="01" title="Tech Stack" />
+        <SectionHead index="02" title="Tech Stack" />
 
         <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {groups.map((group, gi) => (

@@ -66,7 +66,7 @@ export function SharpStyles() {
   filter:grayscale(.38) contrast(1.06) brightness(.9) saturate(.9); }
 /* Product screenshots are far more saturated than the photography — they need
    a harder knock-down or they shout over the palette. */
-.sharp .plate.dim img { filter:grayscale(.82) contrast(1.12) brightness(.74) saturate(.7); }
+.sharp .plate.dim img { filter:grayscale(.65) contrast(1.1) brightness(.88) saturate(.8); }
 /* Already-dark captures: the knock-down above would crush them to flat black,
    so they keep their own value and just lose some saturation. */
 .sharp .plate.deep img { filter:grayscale(.3) contrast(1.04) brightness(1.02) saturate(.9); }

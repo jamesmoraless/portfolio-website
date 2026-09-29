@@ -115,9 +115,10 @@ const Hero = () => {
         <div className="mx-auto max-w-[1440px]">
           <div className="mb-4 h-px w-full bg-ink-hair" />
           <div className="flex items-center justify-between">
-            <a href="#tech-stack" className="group flex items-center gap-3">
+            {/* Points at whatever is actually next — About now leads. */}
+            <a href="#about" className="group flex items-center gap-3">
               <span className="h-px w-7 bg-signal" />
-              <span className="lbl transition-colors group-hover:text-ink">Tech Stack</span>
+              <span className="lbl transition-colors group-hover:text-ink">About</span>
             </a>
             <span className="font-mono text-[11px] tracking-[0.14em] text-ink-faint">↓</span>
           </div>

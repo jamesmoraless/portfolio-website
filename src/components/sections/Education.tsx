@@ -35,7 +35,7 @@ const educationData: EducationItem[] = [
   },
   {
     school: 'Western University',
-    degree: 'Bachelors of Science, Software Engineering',
+    degree: 'Bachelor of Science, Software Engineering',
     period: '2020 - 2025',
     location: 'London, ON',
     gpa: 'GPA: 3.9 (89% avg)',

@@ -16,7 +16,7 @@ export default function About() {
   return (
     <Board h={940}>
       <div style={{ height: 40 }} />
-      <SectionHead index="02" title={ABOUT.heading} />
+      <SectionHead index="01" title={ABOUT.heading} />
 
       <div style={{ display: "flex", gap: 64 }}>
         {/* Writing */}
