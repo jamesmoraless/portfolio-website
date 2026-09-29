@@ -50,7 +50,11 @@ export default function Education() {
             <h3 className="h1" style={{ margin: 0, color: INK.text }}>
               {ed.school}
             </h3>
-            <p style={{ margin: "8px 0 0", fontSize: 15, color: INK.muted }}>Honours Business Administration (HBA)</p>
+            {/* Bound, not literal: this sits inside a .map(), so editing the
+                text in the canvas style panel replaces the binding with one
+                hardcoded string for BOTH cards. That is how Ivey ended up
+                showing the engineering degree. */}
+            <p style={{ margin: "8px 0 0", fontSize: 15, color: INK.muted }}>{ed.degree}</p>
 
             <div style={{ display: "flex", gap: 54, marginTop: 26 }}>
               <div style={{ flex: 1 }}>

@@ -81,10 +81,10 @@ export const ABOUT = {
   ],
   highlightsTitle: "Key Highlights",
   highlights: [
-    "Graduated with dual degree in Software Engineering and Business Administration (HBA)",
-    "Experience in data engineering, full-stack development, and analytics",
-    "Strong foundation in both technical development and product vision + execution",
-    "Proven track record in fast paced startups and analytics teams",
+    "Technical PM owning delivery across $700K+ ARR at a YC-backed startup",
+    "Built an ops platform used daily by 50+ engineers across 30+ clients enabling org wide visibility",
+    "Solo-built a lending platform that cut 2 days of analysis to under 5 minutes through complex ingestion of thousands of data points",
+    "Own end-to-end delivery from discovery and design to launch",
   ],
 };
 
@@ -94,7 +94,7 @@ export const EDUCATION = {
   items: [
     {
       school: "Ivey Business School, Western University",
-      degree: "Bachelor of Arts, Honours Business Administration (HBA)",
+      degree: "Honours in Business Administration (HBA)",
       period: "2022 - 2025",
       location: "London, ON",
       gpa: "GPA: 3.7",
@@ -115,7 +115,7 @@ export const EDUCATION = {
     },
     {
       school: "Western University",
-      degree: "Bachelor of Engineering, Software Engineering",
+      degree: "Bachelors of Science, Software Engineering",
       period: "2020 - 2025",
       location: "London, ON",
       gpa: "GPA: 3.9 (89% avg)",

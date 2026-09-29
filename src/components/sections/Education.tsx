@@ -18,7 +18,7 @@ interface EducationItem {
 const educationData: EducationItem[] = [
   {
     school: 'Ivey Business School, Western University',
-    degree: 'Bachelor of Arts, Honours Business Administration (HBA)',
+    degree: 'Honours in Business Administration (HBA)',
     period: '2022 - 2025',
     location: 'London, ON',
     gpa: 'GPA: 3.7',
@@ -35,7 +35,7 @@ const educationData: EducationItem[] = [
   },
   {
     school: 'Western University',
-    degree: 'Bachelor of Engineering, Software Engineering',
+    degree: 'Bachelors of Science, Software Engineering',
     period: '2020 - 2025',
     location: 'London, ON',
     gpa: 'GPA: 3.9 (89% avg)',

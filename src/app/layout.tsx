@@ -6,12 +6,14 @@ import Navbar from "@/components/layout/Navbar";
 import MotionProvider from "@/components/layout/MotionProvider";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
+// Icons come from the App Router file conventions in this folder — favicon.ico
+// (16/32/48), icon.png (512) and apple-icon.png (180). No `icons` key here on
+// purpose: an explicit one overrides those files, and the convention gives the
+// PNGs a content hash, which is what actually evicts the old purple favicon
+// from browsers that have been caching it.
 export const metadata: Metadata = {
   title: "James Morales | Portfolio",
   description: "Technical Product Manager and Full Stack Engineer",
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export default function RootLayout({

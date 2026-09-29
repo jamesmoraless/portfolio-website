@@ -21,10 +21,10 @@ const galleryImages = [
 ];
 
 const highlights = [
-  'Graduated with dual degree in Software Engineering and Business Administration (HBA)',
-  'Experience in data engineering, full-stack development, and analytics',
-  'Strong foundation in both technical development and product vision + execution',
-  'Proven track record in fast paced startups and analytics teams',
+  'Technical PM owning delivery across $700K+ ARR at a YC-backed startup',
+  'Built an ops platform used daily by 50+ engineers across 30+ clients enabling org wide visibility',
+  'Solo-built a lending platform that cut 2 days of analysis to under 5 minutes through complex ingestion of thousands of data points',
+  'Own end-to-end delivery from discovery and design to launch',
 ];
 
 /**

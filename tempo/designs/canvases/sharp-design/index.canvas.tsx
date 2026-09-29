@@ -10,6 +10,7 @@ import Experience from "./Experience";
 import Projects from "./Projects";
 import Archive from "./Archive";
 import Contact from "./Contact";
+import FaviconBoard from "./Favicon";
 
 export default function SharpDesignCanvas() {
   return (
@@ -84,6 +85,12 @@ export default function SharpDesignCanvas() {
         name="06 · Get in Touch"
         component={Contact}
         layout={{ x: 0, y: 7750, width: 1440, height: 700, intrinsicSizing: "root-element" }}
+      />
+      <Storyboard
+        id="Favicon"
+        name="07 · Favicon"
+        component={FaviconBoard}
+        layout={{ x: 1560, y: 7750, width: 1440, height: 700, intrinsicSizing: "root-element" }}
       />
     </Canvas>
   );
